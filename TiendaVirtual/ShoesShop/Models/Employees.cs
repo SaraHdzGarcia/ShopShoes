@@ -46,7 +46,7 @@ namespace ShoesShop.Models
         [ForeignKey("Userss")]
         [Required(ErrorMessage ="Este campo es obligatorio")]
         [Range(0, int.MaxValue, ErrorMessage = "Acepta valores enteros")]
-        public int IdUser { get; set; }
+        public int UserID { get; set; }
         public Userss Userss { get; set; }
     }
 }

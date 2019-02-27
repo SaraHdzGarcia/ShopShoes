@@ -36,5 +36,9 @@ namespace ShoesShop.Models
 
         [StringLength(15, ErrorMessage = "Longitud maxima de 15")]
         public String Size { get; set; }
+        
+        [Required(ErrorMessage ="Campo obligatorio")]
+        [Range(0,int.MaxValue,ErrorMessage ="Acepta valores enteros")]
+        public int CodeBar { get; set; }
     }
 }
