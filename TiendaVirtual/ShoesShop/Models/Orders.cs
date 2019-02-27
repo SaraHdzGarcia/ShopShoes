@@ -14,7 +14,7 @@ namespace ShoesShop.Models
 
         [ForeignKey("Customers")]
         [StringLength(5, ErrorMessage = "Longitud maxima de 5")]
-        public String UserId { get; set; }
+        public String UserID { get; set; }
         public Userss Userss { get; set; }
 
         [ForeignKey("Employees")]
@@ -31,6 +31,8 @@ namespace ShoesShop.Models
         [DataType(DataType.DateTime)]
         public DateTime ShippedDate { get; set; }
 
-
+        [Required(ErrorMessage ="Campo obligaotorio")]
+        [Range(0,int.MaxValue,ErrorMessage ="Acepta valores enteros")]
+        public int TotalProduct { get; set; }
     }
 }

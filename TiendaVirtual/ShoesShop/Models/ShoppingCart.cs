@@ -7,5 +7,6 @@ namespace ShoesShop.Models
 {
     public class ShoppingCart
     {
+
     }
 }

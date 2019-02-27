@@ -30,8 +30,7 @@ namespace ShoesShop.Models
         [Required(ErrorMessage = "Campo obligatorio")]
         [Range(0, int.MaxValue, ErrorMessage = "Acepta valores enteros")]
         public Int16 Quantity { get; set; }
-
-
+        
         [StringLength(30,ErrorMessage ="Longitud maxima de 30")]
         public String Color { get; set; }
 
