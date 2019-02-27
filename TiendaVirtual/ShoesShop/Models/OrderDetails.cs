@@ -9,14 +9,15 @@ namespace ShoesShop.Models
 {
     public class OrderDetails
     {
-        [Key, Column(Order = 0)]
+        [Key]
+        public int OrderDetailID { get; set; }
+
         [ForeignKey("Orders")]
         [Required(ErrorMessage = "Campo obligatorio")]
         [Range(0, int.MaxValue, ErrorMessage = "Acepta valores enteros")]
         public int OrderID { get; set; }
         public Orders Orders { get; set; }
-
-        [Key, Column(Order = 1)]
+        
         [ForeignKey("Products")]
         [Required(ErrorMessage = "Campo obligatorio")]
         [Range(0, int.MaxValue, ErrorMessage = "Acepta valores enteros")]
