@@ -9,7 +9,7 @@ namespace ShoesShop.Models
 {
     public class OrderDetails
     {
-        [Key, Column(Order = 10248)]
+        [Key, Column(Order = 0)]
         [ForeignKey("Orders")]
         [Required(ErrorMessage = "Campo obligatorio")]
         [Range(0, int.MaxValue, ErrorMessage = "Acepta valores enteros")]

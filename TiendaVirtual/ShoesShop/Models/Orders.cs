@@ -26,9 +26,6 @@ namespace ShoesShop.Models
         public DateTime OrderDate { get; set; }
 
         [DataType(DataType.DateTime)]
-        public DateTime RequiredDate { get; set; }
-
-        [DataType(DataType.DateTime)]
         public DateTime ShippedDate { get; set; }
 
         [Required(ErrorMessage ="Campo obligaotorio")]

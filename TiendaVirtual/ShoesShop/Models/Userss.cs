@@ -22,6 +22,9 @@ namespace ShoesShop.Models
         [StringLength(60, ErrorMessage = "Longitud maxima de 60")]
         public String Address { get; set; }
 
+        [StringLength(8, ErrorMessage = "Longitud maxima de 60")]
+        public String ExtNumber { get; set; }
+
         [StringLength(15, ErrorMessage = "Longitud maxima de 15")]
         public String City { get; set; }
 
