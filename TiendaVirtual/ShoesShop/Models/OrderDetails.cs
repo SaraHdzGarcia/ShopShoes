@@ -36,5 +36,8 @@ namespace ShoesShop.Models
 
         [StringLength(15,ErrorMessage ="Longitud maxima de 15")]
         public String Size { get; set; }
+
+        [DataType(DataType.Currency)]
+        public Decimal Total { get; set; }
     }
 }

@@ -39,6 +39,6 @@ namespace ShoesShop.Models
         
         [Required(ErrorMessage ="Campo obligatorio")]
         [Range(0,int.MaxValue,ErrorMessage ="Acepta valores enteros")]
-        public int CodeBar { get; set; }
+        public int BarCode { get; set; }
     }
 }
