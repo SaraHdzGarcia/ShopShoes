@@ -13,8 +13,8 @@ namespace ShoesShop.Models
         public int OrderTrackingID { get; set; }
 
         [ForeignKey("Orders")]
-        [StringLength(5, ErrorMessage = "Longitud maxima de 5")]
-        public String OrderID { get; set; }
+        [Range(0, int.MaxValue, ErrorMessage = "Acepta valores enteros")]
+        public int OrderID { get; set; }
         public Orders Orders { get; set; }
 
         [StringLength(60, ErrorMessage = "Longitud maxima de 60")]

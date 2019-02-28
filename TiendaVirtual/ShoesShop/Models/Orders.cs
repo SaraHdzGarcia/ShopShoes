@@ -12,9 +12,9 @@ namespace ShoesShop.Models
         [Key]
         public int OrderID { get; set; }
 
-        [ForeignKey("Customers")]
-        [StringLength(5, ErrorMessage = "Longitud maxima de 5")]
-        public String UserID { get; set; }
+        [ForeignKey("Userss")]
+        [Range(0, int.MaxValue, ErrorMessage = "Acepta valores enteros")]
+        public int UserID { get; set; }
         public Userss Userss { get; set; }
 
         [ForeignKey("Employees")]

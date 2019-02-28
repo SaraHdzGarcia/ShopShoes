@@ -144,6 +144,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902280144077_initial.cs" />
+    <Compile Include="Migrations\201902280144077_initial.Designer.cs">
+      <DependentUpon>201902280144077_initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Categories.cs" />
     <Compile Include="Models\DbContextShop.cs" />
     <Compile Include="Models\Employees.cs" />
@@ -259,6 +264,11 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201902280144077_initial.resx">
+      <DependentUpon>201902280144077_initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
