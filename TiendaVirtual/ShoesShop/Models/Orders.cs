@@ -28,8 +28,12 @@ namespace ShoesShop.Models
         [DataType(DataType.DateTime)]
         public DateTime ShippedDate { get; set; }
 
-        [Required(ErrorMessage ="Campo obligaotorio")]
-        [Range(0,int.MaxValue,ErrorMessage ="Acepta valores enteros")]
+        [Required(ErrorMessage = "Campo obligaotorio")]
+        [Range(0, int.MaxValue, ErrorMessage = "Acepta valores enteros")]
         public int TotalProduct { get; set; }
+
+        public virtual ICollection<OrderDetails> OrderDetails { get; set; }
+        public virtual ICollection<OrderTracking> OrderTrackings { get; set; }
+        public virtual ICollection<Shop> Shops { get; set; }
     }
 }

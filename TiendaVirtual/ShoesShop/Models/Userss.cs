@@ -44,5 +44,12 @@ namespace ShoesShop.Models
         [Required(ErrorMessage = "Este campo es obligatorio")]
         [StringLength(50, ErrorMessage = "Longitud maxima de 50")]
         public String Password { get; set; }
+
+        public virtual ICollection<Orders> Orders { get; set; }
+        public virtual ICollection<Employees> Employees { get; set; }
+        public virtual ICollection<ShoppingCart> ShoppingCarts { get; set; }
+
+
+
     }
 }

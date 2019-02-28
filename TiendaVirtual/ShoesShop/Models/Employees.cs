@@ -48,5 +48,9 @@ namespace ShoesShop.Models
         [Range(0, int.MaxValue, ErrorMessage = "Acepta valores enteros")]
         public int UserID { get; set; }
         public Userss Userss { get; set; }
+
+        public virtual ICollection<Shop>Shops { get; set; }
+        public virtual ICollection<Orders> Orders { get; set; }
+
     }
 }
