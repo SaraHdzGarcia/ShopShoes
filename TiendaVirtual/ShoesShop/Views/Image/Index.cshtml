@@ -1,0 +1,11 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Zapatos</h2>
+
+@foreach (var item in ViewBag.lista)
+{
+    <img src="~/Images/@item" width="300" height="300" />
+}
