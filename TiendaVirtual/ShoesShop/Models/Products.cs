@@ -13,7 +13,7 @@ namespace ShoesShop.Models
         public int ProductID { get; set; }
 
         [Required(ErrorMessage = "Campo obligatorio")]
-        [StringLength(40, ErrorMessage = "Longitud maxima de 40")]
+        [StringLength(70, ErrorMessage = "Longitud maxima de 70")]
         public String ProductName { get; set; }
 
         [ForeignKey("Categories")]
@@ -26,7 +26,7 @@ namespace ShoesShop.Models
 
         //Cuanto lo voy a vender
         [DataType(DataType.Currency)]
-        public Decimal ProducPrice { get; set; }
+        public Decimal ProductPrice { get; set; }
 
         [Required(ErrorMessage = "Campo obligatorio")]
         [Range(0, int.MaxValue, ErrorMessage = "Acepta valores enteros")]
@@ -39,8 +39,8 @@ namespace ShoesShop.Models
         public String Size { get; set; }
         
         [Required(ErrorMessage ="Campo obligatorio")]
-        [Range(0,int.MaxValue,ErrorMessage ="Acepta valores enteros")]
-        public int BarCode { get; set; }
+        [StringLength(12, ErrorMessage = "Longitud maxima de 12")]
+        public String BarCode { get; set; }
 
         //Cuanto me costó
         [DataType(DataType.Currency)]

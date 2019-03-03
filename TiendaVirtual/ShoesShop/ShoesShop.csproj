@@ -148,6 +148,10 @@
     <Compile Include="Migrations\201902280144077_initial.Designer.cs">
       <DependentUpon>201902280144077_initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903031857150_v2.cs" />
+    <Compile Include="Migrations\201903031857150_v2.Designer.cs">
+      <DependentUpon>201903031857150_v2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Categories.cs" />
     <Compile Include="Models\DbContextShop.cs" />
@@ -367,6 +371,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201902280144077_initial.resx">
       <DependentUpon>201902280144077_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903031857150_v2.resx">
+      <DependentUpon>201903031857150_v2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
