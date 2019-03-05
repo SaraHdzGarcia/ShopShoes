@@ -9,12 +9,12 @@ namespace ShoesShop.ViewModels
     public class UserModel
     {
         [Required]
-        [Display(Name ="Usuario")]
+        [Display(Name = "Usuario")]
         public string UserName { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name ="Contraseña")]
+        [Display(Name = "Contraseña")]
         public string Password { get; set; }
     }
 }
