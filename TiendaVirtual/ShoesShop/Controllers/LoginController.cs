@@ -18,7 +18,7 @@ namespace ShoesShop.Controllers
             {
                 using (DbContextShop dbCtx = new DbContextShop())
                 {
-
+                    
                 }
             }
 
