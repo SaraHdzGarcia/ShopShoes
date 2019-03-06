@@ -6,38 +6,20 @@ using System.Web.Mvc;
 using ShoesShop.ViewModels;
 using ShoesShop.Models;
 using ShoesShop.Helper;
+using System.IO;
 
 namespace ShoesShop.Controllers
 {
     public class LoginController : Controller
     {
         // GET: Login
-        public ActionResult Login(UserModel usm,string user, string pass)
+        public ActionResult Login(UserModel usm)
         {
             if (ModelState.IsValid)
             {
                 using (DbContextShop dbCtx = new DbContextShop())
                 {
-                    //int rows = dbCtx.Usersses.Count();
-                    //if (rows >= 0)
-                    //{
-                    //    Userss usem = new Userss()
-                    //    {
-                    //        LastName = "Hernandez Garcia",
-                    //        FirstName = "Sara",
-                    //        Address="Av. La Unidad",
-                    //        ExtNumber="539",
-                    //        City="Escobedo",
-                    //        PostalCode="64060",
-                    //        Country="Mexico",
-                    //        Telephone = "8124913721",
-                    //        UserName = "SaraNhm",
-                    //        Password = EncryptionDecryption.EncriptarSHA1("Sobrinos5"),
-                    //    };
-                    //    dbCtx.Usersses.Add(usem);
-                    //    dbCtx.SaveChanges();
-                //}
-                string encryptedPass = EncryptionDecryption.EncriptarSHA1(usm.Password);
+                    string encryptedPass = EncryptionDecryption.EncriptarSHA1(usm.Password);
 
                 var isLogged = dbCtx.Usersses
                         .Where(x => x.UserName.Equals(usm.UserName)
@@ -47,6 +29,13 @@ namespace ShoesShop.Controllers
                     if (isLogged != null)
                     {
                         Session["UserName"] = usm.UserName.ToString();
+
+                        var path = Server.MapPath("~") + @"Files";
+                        var fileName = "/Log.txt";
+                        StreamWriter sw = new StreamWriter(path + fileName, true);
+                        sw.WriteLine("Login -" + DateTime.Now + " " + "El usuario : " + usm.UserName +  " ingresó");
+                        sw.Close();
+
                         return RedirectToAction("Index", "Home");
                     }
                 }

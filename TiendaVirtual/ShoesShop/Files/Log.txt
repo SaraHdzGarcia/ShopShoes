@@ -1,0 +1,8 @@
+Login -05/03/2019 18:52:37Se insertó el estudiante con nombre: 
+Login -05/03/2019 18:55:47La persona :  ingresó
+Login -05/03/2019 19:01:48El usuario :SaraNhm ingresó
+Login -05/03/2019 19:08:38 El usuario : Guille ingresó
+Login -05/03/2019 19:52:26 El usuario : YuliannaIbco ingresó
+Login -05/03/2019 19:58:03 El usuario : Omarcin ingresó
+Login -05/03/2019 20:02:13 El usuario : YeseniaM ingresó
+Login -05/03/2019 21:02:49 El usuario : SaraNhm ingresó
