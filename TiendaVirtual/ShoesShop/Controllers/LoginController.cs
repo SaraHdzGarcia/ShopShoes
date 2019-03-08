@@ -36,7 +36,7 @@ namespace ShoesShop.Controllers
                         sw.WriteLine("Login -" + DateTime.Now + " " + "El usuario : " + usm.UserName +  " ingresó");
                         sw.Close();
 
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Index", "Image");
                     }
                 }
             }

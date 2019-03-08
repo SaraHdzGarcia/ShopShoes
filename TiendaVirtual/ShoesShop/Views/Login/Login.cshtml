@@ -6,51 +6,87 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="author" content="" />
+
     <title>Login</title>
+
+    <link href="~/Content/Styles/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Styles/css/style.css"  rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" />
+
 </head>
-<body>
-    <h2>Login</h2>
 
-    @using (Html.BeginForm("Login", "Login", FormMethod.Post))
-    {
-        <fieldset>
-            <legend> </legend>
+<body style="background: #CF7B52;">
+    <nav class="navbar navbar-dark bg-dark navbar-expand-sm fixed-top">
+        <a class="navbar-brand" href="~/Views/Image/Index.cshtml" style="font-size:25px;">
+            <img src="~/Images/5.png" width="80" height="30" alt="Logo" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" 
+                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-            @Html.AntiForgeryToken()
-            @Html.ValidationSummary(true)
-            @if (@ViewBag.Message != null)
-            {
-                <div style="border: 1px solid red">
-                    @ViewBag.Message
-                </div>
-            }
-            <table>
-                <tr>
-                    <td>@Html.LabelFor(a => a.UserName)</td>
-                    <td>@Html.TextBoxFor(a => a.UserName, new { @class = "form-control" })</td>
-                </tr>
-                <tr>
-                    <td>
-                        @Html.LabelFor(a => a.Password)
-                    </td>
-                    <td>
-                        @Html.PasswordFor(a => a.Password, new { @class = "form-control" })
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>
-                        <input type="submit" value="Login" class="btn btn-info" />
-                    </td>
-                    <td></td>
-                </tr>
-            </table>
-        </fieldset>
-    }
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02" >
 
+            <div class="navbar-nav ml-auto mr-auto text-center" >
+                <a class="nav-item nav-link active" href="#">Categorias</a>
+                <a class="nav-item nav-link" href="#">Novedades</a>
+                <a class="nav-item nav-link" href="#">Contacto</a>
+                
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" 
+                           aria-haspopup="true" aria-expanded="false">Otros</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="~/Views/Login/Login.cshtml">Iniciar Sesión</a>
+                        </div>
+                    </li>
+                
+            </div>
+        </div>
+    </nav>
+    <section class="container-fluid">
+        <section class="d-flex justify-content-center mt-5 pt-5 mb-4">
+            <img src="~/Images/3.png" width="120" height="120" alt="Inicio" />
+        </section>
+        <p class="h2 text-black text-center mb-4">Login</p>
 
+        @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+        {
+            <section class="row justify-content-center mb-4">
+                <section class="col-sm-6 col-md-4">
+                    <form class="form-group">
+
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+                        @if (@ViewBag.Message != null)
+                        {
+                            <div style="border: 1px solid red">
+                                @ViewBag.Message
+                            </div>
+                        }
+                        <div class="form-group">
+                            @Html.LabelFor(a => a.UserName)
+                            @Html.TextBoxFor(a => a.UserName, new { @class = "form-control", @placeholder = "Ingrese usuario" })
+                            <br />
+                            @Html.LabelFor(a => a.Password)
+                            @Html.PasswordFor(a => a.Password, new { @class = "form-control", @placeholder = "Ingrese contraseña" })
+
+                            <br />
+                            <input type="submit" value="Login" class="btn btn-success btn-block" />
+
+                        </div>
+                    </form>
+                </section>
+            </section>
+
+        }
+
+    </section>  
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 </body>
 </html>

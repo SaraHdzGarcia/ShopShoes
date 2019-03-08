@@ -181,6 +181,13 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Styles\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="Content\Styles\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="Content\Styles\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="Content\Styles\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="Content\Styles\bootstrap\css\bootstrap.css" />
+    <Content Include="Content\Styles\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\Styles\css\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -215,6 +222,7 @@
     <Content Include="Images\25911259110000.jpg" />
     <Content Include="Images\267178443636.jpg" />
     <Content Include="Images\267199682998.jpg" />
+    <Content Include="Images\3.png" />
     <Content Include="Images\312011100265.jpg" />
     <Content Include="Images\312645897423.jpg" />
     <Content Include="Images\312688993214.jpg" />
@@ -237,6 +245,7 @@
     <Content Include="Images\474618002505.jpg" />
     <Content Include="Images\480717632307.jpg" />
     <Content Include="Images\480948032204.jpg" />
+    <Content Include="Images\5.png" />
     <Content Include="Images\508075080700.jpg" />
     <Content Include="Images\509025090200.jpg" />
     <Content Include="Images\509045090400.jpg" />
@@ -306,6 +315,12 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Content\Styles\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="Content\Styles\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="Content\Styles\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="Content\Styles\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\Styles\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Content\Styles\bootstrap\css\bootstrap.min.css.map" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -316,6 +331,10 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\js\bootstrap.bundle.js" />
+    <Content Include="Scripts\js\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\js\bootstrap.js" />
+    <Content Include="Scripts\js\bootstrap.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />
@@ -363,6 +382,10 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Image\Index.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Scripts\js\bootstrap.bundle.js.map" />
+    <Content Include="Scripts\js\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\js\bootstrap.js.map" />
+    <Content Include="Scripts\js\bootstrap.min.js.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

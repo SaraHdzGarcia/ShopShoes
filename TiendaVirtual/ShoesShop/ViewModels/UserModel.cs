@@ -8,11 +8,11 @@ namespace ShoesShop.ViewModels
 {
     public class UserModel
     {
-        [Required]
+        [Required(ErrorMessage ="Campo obligatorio")]
         [Display(Name = "Usuario")]
         public string UserName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="Campo obligatorio")]
         [DataType(DataType.Password)]
         [Display(Name = "Contraseña")]
         public string Password { get; set; }
