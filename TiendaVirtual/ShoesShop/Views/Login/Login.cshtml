@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="author" content="" />
 
-    <title>Login</title>
+    <title>Inicio de Sesion</title>
 
     <link href="~/Content/Styles/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/Styles/css/style.css"  rel="stylesheet"/>
@@ -51,7 +51,7 @@
         <section class="d-flex justify-content-center mt-5 pt-5 mb-4">
             <img src="~/Images/3.png" width="120" height="120" alt="Inicio" />
         </section>
-        <p class="h2 text-black text-center mb-4">Login</p>
+        <p class="h2 text-black text-center mb-4">Bienvenidos</p>
 
         @using (Html.BeginForm("Login", "Login", FormMethod.Post))
         {
@@ -75,7 +75,7 @@
                             @Html.PasswordFor(a => a.Password, new { @class = "form-control", @placeholder = "Ingrese contraseña" })
 
                             <br />
-                            <input type="submit" value="Login" class="btn btn-success btn-block" />
+                            <input type="submit" value="Ingresar" class="btn btn-success btn-block" />
 
                         </div>
                     </form>
