@@ -43,5 +43,16 @@ namespace ShoesShop.Controllers
 
             return View(usm);
         }
+
+        public ActionResult ModificarPerfil()
+        {
+
+            return View();
+        }
+
+        public ActionResult Registrar()
+        {
+            return View();
+        }
     }
 }
