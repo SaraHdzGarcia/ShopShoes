@@ -37,6 +37,10 @@ namespace ShoesShop.Models
         [StringLength(24, ErrorMessage = "Longitud maxima de 24")]
         public String Telephone { get; set; }
 
+        [StringLength(70,ErrorMessage ="Longitud maxima de 70")]
+        [Required(ErrorMessage ="Campo obligatorio")]
+        public String Email { get; set; }
+
         [Required(ErrorMessage = "Este campo es obligatorio")]
         [StringLength(50, ErrorMessage = "Longitud maxima de 50")]
         public String UserName { get; set; }

@@ -159,6 +159,10 @@
     <Compile Include="Migrations\201903052338133_v3.Designer.cs">
       <DependentUpon>201903052338133_v3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903091600138_v4.cs" />
+    <Compile Include="Migrations\201903091600138_v4.Designer.cs">
+      <DependentUpon>201903091600138_v4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Categories.cs" />
     <Compile Include="Models\DbContextShop.cs" />
@@ -172,6 +176,7 @@
     <Compile Include="Models\Userss.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="ViewModels\RegistrationModel.cs" />
     <Compile Include="ViewModels\UserModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -211,6 +216,7 @@
     <Content Include="Images\020841763055.jpg" />
     <Content Include="Images\020882786319.jpg" />
     <Content Include="Images\020897459631.jpg" />
+    <Content Include="Images\0e51f78f-6d42-4634-84c4-d52269a8273c.jpg" />
     <Content Include="Images\100603100603.jpg" />
     <Content Include="Images\115967400860.jpg" />
     <Content Include="Images\134919031701.jpg" />
@@ -386,6 +392,7 @@
     <Content Include="Scripts\js\bootstrap.bundle.min.js.map" />
     <Content Include="Scripts\js\bootstrap.js.map" />
     <Content Include="Scripts\js\bootstrap.min.js.map" />
+    <Content Include="Views\Login\Registrar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -411,6 +418,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903052338133_v3.resx">
       <DependentUpon>201903052338133_v3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903091600138_v4.resx">
+      <DependentUpon>201903091600138_v4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

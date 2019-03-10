@@ -38,6 +38,7 @@ namespace ShoesShop.Controllers
 
                         return RedirectToAction("Index", "Image");
                     }
+                    
                 }
             }
 
@@ -50,9 +51,52 @@ namespace ShoesShop.Controllers
             return View();
         }
 
+        //GET
         public ActionResult Registrar()
         {
             return View();
+        }
+
+        //POST
+        [HttpPost]
+        public ActionResult Registrar(RegistrationModel userss)
+        {
+            if (ModelState.IsValid)
+            {
+                using (DbContextShop dbCtx = new DbContextShop())
+                {
+                    int row = dbCtx.Usersses.Count();
+                    if (row > 0)
+                    {
+                        Userss us = new Userss()
+                        {
+                            LastName="",
+                            FirstName="",
+                            Address="",
+                            ExtNumber="",
+                            City="",
+                            PostalCode="",
+                            Country="",
+                            Telephone="",
+                            Email = "",
+                            UserName = "",
+                            Password = EncryptionDecryption.EncriptarSHA1("")
+                        };
+                        dbCtx.Usersses.Add(us);
+                        dbCtx.SaveChanges();
+                    }
+                    
+
+                    var path = Server.MapPath("~") + @"Files";
+                    var fileName = "/Log2.txt";
+                    StreamWriter sw = new StreamWriter(path + fileName, true);
+                    sw.WriteLine("Metodo Registrar -" + DateTime.Now + "Se registró el cliente:" + userss.FirstName + "" + userss.LastName);
+                    sw.Close();
+
+                    return RedirectToAction("Index", "Image");
+                }
+            }
+            return View(userss);
         }
     }
 }
