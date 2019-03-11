@@ -21,10 +21,10 @@ namespace ShoesShop.Controllers
                 {
                     string encryptedPass = EncryptionDecryption.EncriptarSHA1(usm.Password);
 
-                var isLogged = dbCtx.Usersses
-                        .Where(x => x.UserName.Equals(usm.UserName)
-                        && x.Password.Equals(encryptedPass))
-                        .FirstOrDefault();
+                    var isLogged = dbCtx.Usersses
+                            .Where(x => x.UserName.Equals(usm.UserName)
+                            && x.Password.Equals(encryptedPass))
+                            .FirstOrDefault();
 
                     if (isLogged != null)
                     {
@@ -33,12 +33,12 @@ namespace ShoesShop.Controllers
                         var path = Server.MapPath("~") + @"Files";
                         var fileName = "/Log.txt";
                         StreamWriter sw = new StreamWriter(path + fileName, true);
-                        sw.WriteLine("Login -" + DateTime.Now + " " + "El usuario : " + usm.UserName +  " ingresó");
+                        sw.WriteLine("Login -" + DateTime.Now + " " + "El usuario : " + usm.UserName + " ingresó");
                         sw.Close();
 
                         return RedirectToAction("Index", "Image");
                     }
-                    
+
                 }
             }
 
@@ -61,40 +61,41 @@ namespace ShoesShop.Controllers
         [HttpPost]
         public ActionResult Registrar(RegistrationModel userss)
         {
-            if (ModelState.IsValid)
+            try
             {
-                using (DbContextShop dbCtx = new DbContextShop())
+                if (ModelState.IsValid)
                 {
-                    int row = dbCtx.Usersses.Count();
-                    if (row > 0)
+                    using (DbContextShop dbCtx = new DbContextShop())
                     {
-                        Userss us = new Userss()
+                        int row = dbCtx.Usersses.Count();
+                        if (row > 0)
                         {
-                            LastName="",
-                            FirstName="",
-                            Address="",
-                            ExtNumber="",
-                            City="",
-                            PostalCode="",
-                            Country="",
-                            Telephone="",
-                            Email = "",
-                            UserName = "",
-                            Password = EncryptionDecryption.EncriptarSHA1("")
-                        };
-                        dbCtx.Usersses.Add(us);
-                        dbCtx.SaveChanges();
+                            Userss us = new Userss()
+                            {
+                                LastName = "",
+                                FirstName = "",
+                                Email = "",
+                                UserName = "",
+                                Password = EncryptionDecryption.EncriptarSHA1("")
+                            };
+                            dbCtx.Usersses.Add(us);
+                            dbCtx.SaveChanges();
+                            var path = Server.MapPath("~") + @"Files";
+                            var fileName = "/Log2.txt";
+                            StreamWriter sw = new StreamWriter(path + fileName, true);
+                            sw.WriteLine("Metodo Registrar -" + DateTime.Now + "Se registró el cliente:" + userss.FirstName + "" + userss.LastName);
+                            sw.Close();
+
+                            return RedirectToAction("Index", "Image");
+                        }
+
+
                     }
-                    
-
-                    var path = Server.MapPath("~") + @"Files";
-                    var fileName = "/Log2.txt";
-                    StreamWriter sw = new StreamWriter(path + fileName, true);
-                    sw.WriteLine("Metodo Registrar -" + DateTime.Now + "Se registró el cliente:" + userss.FirstName + "" + userss.LastName);
-                    sw.Close();
-
-                    return RedirectToAction("Index", "Image");
                 }
+            }
+            catch
+            {
+
             }
             return View(userss);
         }
