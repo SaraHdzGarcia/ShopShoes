@@ -7,6 +7,7 @@ using ShoesShop.ViewModels;
 using ShoesShop.Models;
 using ShoesShop.Helper;
 using System.IO;
+using System.Data.Entity.Validation;
 
 namespace ShoesShop.Controllers
 {
@@ -76,7 +77,14 @@ namespace ShoesShop.Controllers
                                 FirstName = "",
                                 Email = "",
                                 UserName = "",
-                                Password = EncryptionDecryption.EncriptarSHA1("")
+                                Password = EncryptionDecryption.EncriptarSHA1(""),
+                                Address = "Av. Aztlan",
+                                ExtNumber = "789",
+                                City = "Monterrey",
+                                Country = "Mexico",
+                                PostalCode = "66069",
+                                Telephone = "55 555 555 5555"
+
                             };
                             dbCtx.Usersses.Add(us);
                             dbCtx.SaveChanges();
@@ -93,10 +101,23 @@ namespace ShoesShop.Controllers
                     }
                 }
             }
-            catch
+            catch (DbEntityValidationException ex)
             {
+                // Retrieve the error messages as a list of strings.
+                var errorMessages = ex.EntityValidationErrors
+                        .SelectMany(x => x.ValidationErrors)
+                        .Select(x => x.ErrorMessage);
 
+                // Join the list to a single string.
+                var fullErrorMessage = string.Join("; ", errorMessages);
+
+                // Combine the original exception message with the new one.
+                var exceptionMessage = string.Concat(ex.Message, " The validation errors are: ", fullErrorMessage);
+
+                // Throw a new DbEntityValidationException with the improved exception message.
+                //throw new DbEntityValidationException(exceptionMessage, ex.EntityValidationErrors);
             }
+
             return View(userss);
         }
     }
