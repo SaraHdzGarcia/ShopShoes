@@ -12,31 +12,36 @@ namespace ShoesShop.Controllers
         // GET: Image
         public ActionResult Index()
         {
-            //Esta linea sirve para guardar en una lista las rutas de las fotos
-            List<string> listaRutaImages = new List<string>();
-
-            //Esta linea sirve para obtener la ruta completa donde tengo
-            //guardadas todas mis fotos
-            var carpeta = Server.MapPath("~") + @"Images";
-
-            //Instanciamos el objeto para crear los directorios
-            DirectoryInfo d = new DirectoryInfo(carpeta);
-
-            //obtener todos los archivos que tienen la extension .jpg
-            FileInfo[] Files = d.GetFiles("*.jpg");
-
-            //Recorremos la carpeta donde guardamos las fotos
-            foreach (FileInfo file in Files)
+            if (Session["UserName"] != null)
             {
-                //Agregamos la foto completa a la lista (nombre de la foto)
-                listaRutaImages.Add(file.Name);
+                //Esta linea sirve para guardar en una lista las rutas de las fotos
+                List<string> listaRutaImages = new List<string>();
+
+                //Esta linea sirve para obtener la ruta completa donde tengo
+                //guardadas todas mis fotos
+                var carpeta = Server.MapPath("~") + @"Images";
+
+                //Instanciamos el objeto para crear los directorios
+                DirectoryInfo d = new DirectoryInfo(carpeta);
+
+                //obtener todos los archivos que tienen la extension .jpg
+                FileInfo[] Files = d.GetFiles("*.jpg");
+
+                //Recorremos la carpeta donde guardamos las fotos
+                foreach (FileInfo file in Files)
+                {
+                    //Agregamos la foto completa a la lista (nombre de la foto)
+                    listaRutaImages.Add(file.Name);
+                }
+
+                //Es un tipo de variable que nos sirve para transportar informacion a la vista
+                ViewBag.lista = listaRutaImages;
+                return View();
             }
-
-            //Es un tipo de variable que nos sirve para transportar informacion a la vista
-            ViewBag.lista = listaRutaImages;
-
-
-            return View();
+            else
+            {
+                return RedirectToAction("Login", "Login");
+            }
         }
     }
 }
