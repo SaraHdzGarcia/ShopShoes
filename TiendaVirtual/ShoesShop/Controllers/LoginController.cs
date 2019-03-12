@@ -39,16 +39,27 @@ namespace ShoesShop.Controllers
 
                         return RedirectToAction("Index", "Image");
                     }
+                    else
+                    {
+                        
+                    }
 
                 }
             }
 
             return View(usm);
         }
-
+        //GET
         public ActionResult ModificarPerfil()
         {
 
+            return View();
+        }
+        
+        //POST
+        [HttpPost]
+        public ActionResult ModificarPerfil2()
+        {
             return View();
         }
 
@@ -73,11 +84,11 @@ namespace ShoesShop.Controllers
                         {
                             Userss us = new Userss()
                             {
-                                LastName = "",
-                                FirstName = "",
-                                Email = "",
-                                UserName = "",
-                                Password = EncryptionDecryption.EncriptarSHA1(""),
+                                LastName = userss.LastName,
+                                FirstName = userss.FirstName,
+                                Email = userss.Email,
+                                UserName = userss.UserName, 
+                                Password = EncryptionDecryption.EncriptarSHA1(userss.Password),
                                 Address = "Av. Aztlan",
                                 ExtNumber = "789",
                                 City = "Monterrey",
