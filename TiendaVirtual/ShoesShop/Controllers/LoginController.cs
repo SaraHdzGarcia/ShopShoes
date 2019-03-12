@@ -20,30 +20,31 @@ namespace ShoesShop.Controllers
             {
                 using (DbContextShop dbCtx = new DbContextShop())
                 {
-                    string encryptedPass = EncryptionDecryption.EncriptarSHA1(usm.Password);
+                        string encryptedPass = EncryptionDecryption.EncriptarSHA1(usm.Password);
 
-                    var isLogged = dbCtx.Usersses
-                            .Where(x => x.UserName.Equals(usm.UserName)
-                            && x.Password.Equals(encryptedPass))
-                            .FirstOrDefault();
+                        var isLogged = dbCtx.Usersses
+                                .Where(x => x.UserName.Equals(usm.UserName)
+                                && x.Password.Equals(encryptedPass))
+                                .FirstOrDefault();
 
-                    if (isLogged != null)
-                    {
-                        Session["UserName"] = usm.UserName.ToString();
 
-                        var path = Server.MapPath("~") + @"Files";
-                        var fileName = "/Log.txt";
-                        StreamWriter sw = new StreamWriter(path + fileName, true);
-                        sw.WriteLine("Login -" + DateTime.Now + " " + "El usuario : " + usm.UserName + " ingresó");
-                        sw.Close();
+                        if (isLogged != null)
+                        {
+                            Session["UserName"] = usm.UserName.ToString();
 
-                        return RedirectToAction("Index", "Image");
-                    }
-                    else
-                    {
-                        
-                    }
+                            var path = Server.MapPath("~") + @"Files";
+                            var fileName = "/Log.txt";
+                            StreamWriter sw = new StreamWriter(path + fileName, true);
+                            sw.WriteLine("Login -" + DateTime.Now + " " + "El usuario : " + usm.UserName + " ingresó");
+                            sw.Close();
 
+                            return RedirectToAction("Index", "Image");
+                        }
+                        else
+                        {
+                            //return RedirectToAction("Registrar","Login");
+                        }
+                    
                 }
             }
 
@@ -102,7 +103,7 @@ namespace ShoesShop.Controllers
                             var path = Server.MapPath("~") + @"Files";
                             var fileName = "/Log2.txt";
                             StreamWriter sw = new StreamWriter(path + fileName, true);
-                            sw.WriteLine("Metodo Registrar -" + DateTime.Now + "Se registró el cliente:" + userss.FirstName + "" + userss.LastName);
+                            sw.WriteLine("Metodo Registrar -" + DateTime.Now + "Se registró el cliente: " + userss.FirstName + " " + userss.LastName);
                             sw.Close();
 
                             return RedirectToAction("Index", "Image");
