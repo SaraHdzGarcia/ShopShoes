@@ -33,15 +33,15 @@
 
             <div class="navbar-nav ml-auto mr-auto text-center">
                 <a class="nav-item nav-link active" href="#">Categorias</a>
-                <a class="nav-item nav-link" href="~/Views/Novedades/Novedades.cshtml">Novedades</a>
+                <a class="nav-item nav-link" href="@Url.Action("Novedades","Novedades")">Novedades</a>
                 <a class="nav-item nav-link" href="#">Contacto</a>
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">Otros</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="~/Views/Login/Login.cshtml">Iniciar Sesión</a>
-                        <a class="dropdown-item" href="~/Views/Login/Registrar.cshtml">Registrar</a>
+                        <a class="dropdown-item" href="@Url.Action("Login","Login")">Iniciar Sesión</a>
+                        <a class="dropdown-item" href="@Url.Action("Registrar","Login")">Registrar</a>
                     </div>
                 </li>
 
