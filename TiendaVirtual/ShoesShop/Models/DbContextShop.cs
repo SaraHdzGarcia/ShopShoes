@@ -23,6 +23,7 @@ namespace ShoesShop.Models
         public DbSet<Shop> Shops { get; set; }
         public DbSet<ShoppingCart> ShoppingCarts { get; set; }
         public DbSet<Userss> Usersses { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

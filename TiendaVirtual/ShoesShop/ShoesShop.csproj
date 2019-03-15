@@ -172,8 +172,17 @@
     <Compile Include="Migrations\201903112216074_v6.Designer.cs">
       <DependentUpon>201903112216074_v6.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903142352354_v7.cs" />
+    <Compile Include="Migrations\201903142352354_v7.Designer.cs">
+      <DependentUpon>201903142352354_v7.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903142356463_v8.cs" />
+    <Compile Include="Migrations\201903142356463_v8.Designer.cs">
+      <DependentUpon>201903142356463_v8.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Categories.cs" />
+    <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\DbContextShop.cs" />
     <Compile Include="Models\Employees.cs" />
     <Compile Include="Models\OrderDetails.cs" />
@@ -492,6 +501,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903112216074_v6.resx">
       <DependentUpon>201903112216074_v6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903142352354_v7.resx">
+      <DependentUpon>201903142352354_v7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903142356463_v8.resx">
+      <DependentUpon>201903142356463_v8.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

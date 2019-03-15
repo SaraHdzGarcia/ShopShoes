@@ -89,13 +89,7 @@ namespace ShoesShop.Controllers
                                 FirstName = userss.FirstName,
                                 Email = userss.Email,
                                 UserName = userss.UserName, 
-                                Password = EncryptionDecryption.EncriptarSHA1(userss.Password),
-                                Address = "Av. Aztlan",
-                                ExtNumber = "789",
-                                City = "Monterrey",
-                                Country = "Mexico",
-                                PostalCode = "66069",
-                                Telephone = "55 555 555 5555"
+                                Password = EncryptionDecryption.EncriptarSHA1(userss.Password)
 
                             };
                             dbCtx.Usersses.Add(us);
@@ -131,6 +125,12 @@ namespace ShoesShop.Controllers
             }
 
             return View(userss);
+        }
+
+        public ActionResult LogOut()
+        {
+
+            return View();
         }
     }
 }

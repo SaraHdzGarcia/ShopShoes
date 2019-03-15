@@ -22,7 +22,7 @@
 
 <body style="background: #CF7B52;">
     <nav class="navbar navbar-dark bg-dark navbar-expand-sm fixed-top">
-        <a class="navbar-brand" href="~/Views/Image/Index.cshtml" style="font-size:25px;">
+        <a class="navbar-brand" href="@Url.Action("Index","Image")" style="font-size:25px;">
             <img src="~/Images/5.png" width="80" height="30" alt="Logo" />
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" 
@@ -32,20 +32,23 @@
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02" >
 
-            <div class="navbar-nav ml-auto mr-auto text-center" >
-                <a class="nav-item nav-link active" href="#">Categorias</a>
-                <a class="nav-item nav-link" href="@Url.Action("Novedades","Novedades")">Novedades</a>
-                <a class="nav-item nav-link" href="#">Contacto</a>
-                
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" 
-                           aria-haspopup="true" aria-expanded="false">Otros</a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="@Url.Action("Login","Login")">Iniciar Sesión</a>
-                            <a class="dropdown-item" href="@Url.Action("Registrar","Login")">Registrar</a>
-                        </div>
-                    </li>
-                
+            <div class="navbar-nav ml-auto mr-auto text-center">
+                <a class="nav-item nav-link" href="@Url.Action("Login","Login")">Iniciar Sesión</a>
+                <a class="nav-item nav-link" href="@Url.Action("Registrar","Login")">Registrar</a>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">Categorias</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#"> Caballero</a>
+                        <a class="dropdown-item" href="#">Dama</a>
+                        <a class="dropdown-item" href="#">Niña</a>
+                        <a class="dropdown-item" href="#">Niño</a>
+                    </div>
+                </li>
+
+                    <a class="nav-item nav-link" href="@Url.Action("Novedades","Novedades")">Novedades</a>
+                    <a class="nav-item nav-link" href="#">Contacto</a>
             </div>
         </div>
     </nav>
