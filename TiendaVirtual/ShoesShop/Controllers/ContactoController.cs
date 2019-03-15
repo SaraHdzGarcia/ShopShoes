@@ -12,6 +12,7 @@ namespace ShoesShop.Controllers
     public class ContactoController : Controller
     {
         DbContextShop dbCtx = new DbContextShop();
+
         // GET: Contacto
         public ActionResult Contact()
         {
@@ -26,7 +27,7 @@ namespace ShoesShop.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    int row = dbCtx.Usersses.Count();
+                    int row = dbCtx.Contacts.Count();
                     if ((row == 0)||(row>0))
                     {
                         Contact cn = new Contact()

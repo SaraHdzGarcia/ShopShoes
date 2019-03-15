@@ -85,29 +85,37 @@ namespace ShoesShop.Controllers
                 {
                     using (DbContextShop dbCtx = new DbContextShop())
                     {
-                        int row = dbCtx.Usersses.Count();
-                        if (row > 0)
-                        {
-                            Userss us = new Userss()
+                        
+                        //var duplicate = dbCtx.Usersses.Any(x => x.UserName == userss.UserName);
+                        //if (duplicate)
+                        //{
+                        //    ModelState.AddModelError("UserName", "Ya existe una persona con ese UserName");
+                        //}
+                        //else
+                        //{
+                            int row = dbCtx.Usersses.Count();
+                            if (row > 0)
                             {
-                                LastName = userss.LastName,
-                                FirstName = userss.FirstName,
-                                Email = userss.Email,
-                                UserName = userss.UserName, 
-                                Password = EncryptionDecryption.EncriptarSHA1(userss.Password)
+                                Userss us = new Userss()
+                                {
+                                    LastName = userss.LastName,
+                                    FirstName = userss.FirstName,
+                                    Email = userss.Email,
+                                    UserName = userss.UserName,
+                                    Password = EncryptionDecryption.EncriptarSHA1(userss.Password)
 
-                            };
-                            dbCtx.Usersses.Add(us);
-                            dbCtx.SaveChanges();
-                            var path = Server.MapPath("~") + @"Files";
-                            var fileName = "/Log2.txt";
-                            StreamWriter sw = new StreamWriter(path + fileName, true);
-                            sw.WriteLine("Metodo Registrar -" + DateTime.Now + "Se registró el cliente: " + userss.FirstName + " " + userss.LastName);
-                            sw.Close();
+                                };
+                                dbCtx.Usersses.Add(us);
+                                dbCtx.SaveChanges();
+                                var path = Server.MapPath("~") + @"Files";
+                                var fileName = "/Log2.txt";
+                                StreamWriter sw = new StreamWriter(path + fileName, true);
+                                sw.WriteLine("Metodo Registrar -" + DateTime.Now + "Se registró el cliente: " + userss.FirstName + " " + userss.LastName);
+                                sw.Close();
 
-                            return RedirectToAction("Index", "Image");
-                        }
-
+                                return RedirectToAction("Index", "Image");
+                            }
+                        //}
 
                     }
                 }
