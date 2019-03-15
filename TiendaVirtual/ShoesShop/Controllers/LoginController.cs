@@ -8,11 +8,13 @@ using ShoesShop.Models;
 using ShoesShop.Helper;
 using System.IO;
 using System.Data.Entity.Validation;
+using System.Web.Security;
 
 namespace ShoesShop.Controllers
 {
     public class LoginController : Controller
     {
+        #region Log In
         // GET: Login
         public ActionResult Login(UserModel usm)
         {
@@ -50,6 +52,8 @@ namespace ShoesShop.Controllers
 
             return View(usm);
         }
+        #endregion
+
         //GET
         public ActionResult ModificarPerfil()
         {
@@ -64,6 +68,7 @@ namespace ShoesShop.Controllers
             return View();
         }
 
+        #region Registrar
         //GET
         public ActionResult Registrar()
         {
@@ -126,11 +131,13 @@ namespace ShoesShop.Controllers
 
             return View(userss);
         }
+        #endregion
 
         public ActionResult LogOut()
         {
 
-            return View();
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index", "Image");
         }
     }
 }
