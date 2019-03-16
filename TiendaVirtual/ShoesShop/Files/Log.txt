@@ -21,3 +21,4 @@ Login -14/03/2019 13:27:49 El usuario : SaraNhm ingresó
 Login -14/03/2019 17:03:51 El usuario : SaraNhm ingresó
 Login -14/03/2019 17:23:48 El usuario : SaraNhm ingresó
 Login -14/03/2019 18:00:12 El usuario : NohemiHdz ingresó
+Login -16/03/2019 12:20:15 El usuario : YuliannaIbco ingresó
