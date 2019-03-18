@@ -12,8 +12,8 @@ namespace ShoesShop.Controllers
         // GET: Image
         public ActionResult Index()
         {
-            if (Session["UserName"] != null)
-            {
+            //if (Session["UserName"] != null)
+            //{
                 //Esta linea sirve para guardar en una lista las rutas de las fotos
                 List<string> listaRutaImages = new List<string>();
 
@@ -37,11 +37,11 @@ namespace ShoesShop.Controllers
                 //Es un tipo de variable que nos sirve para transportar informacion a la vista
                 ViewBag.lista = listaRutaImages;
                 return View();
-            }
-            else
-            {
-                return RedirectToAction("Login", "Login");
-            }
+            //}
+            //else
+            //{
+            //    return RedirectToAction("Login", "Login");
+            //}
         }
     }
 }
