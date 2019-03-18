@@ -22,5 +22,11 @@ namespace ShoesShop.Controllers
         {
             return View(dbCtx.Products.ToList().Where(x=>x.CategoryID==1).OrderBy(x=>x.BarCode));
         }
+
+
+        public ActionResult Dama()
+        {
+            return View(dbCtx.Products.ToList().Where(x=>x.CategoryID==2).OrderBy(x=>x.BarCode));
+        }
     }
 }
