@@ -2185,6 +2185,7 @@
     <Content Include="Views\Novedades\Novedades.cshtml" />
     <Content Include="Views\Contacto\Contact.cshtml" />
     <Content Include="Views\Index\Index.cshtml" />
+    <Content Include="Views\Index\Caballero.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
