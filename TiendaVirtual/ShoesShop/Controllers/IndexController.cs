@@ -21,17 +21,20 @@ namespace ShoesShop.Controllers
 
         public ActionResult Caballero()
         {
+            ViewBag.ruta = Server.MapPath("~") + @"Images" + (".jpg");
             return View(dbCtx.Products.ToList().Where(x=>x.CategoryID==1).OrderBy(x=>x.BarCode));
         }
 
 
         public ActionResult Dama()
         {
+            ViewBag.ruta = Server.MapPath("~") + @"Images" + (".jpg");
             return View(dbCtx.Products.ToList().Where(x=>x.CategoryID==2).OrderBy(x=>x.BarCode));
         }
 
         public ActionResult Niño()
         {
+            ViewBag.ruta = Server.MapPath("~") + @"Images" + (".jpg");
             return View(dbCtx.Products.ToList().Where(x => x.CategoryID == 3).OrderBy(x => x.BarCode));
         }
 

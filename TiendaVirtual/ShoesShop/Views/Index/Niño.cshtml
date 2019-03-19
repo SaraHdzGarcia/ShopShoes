@@ -117,6 +117,7 @@
             <table>
                 <thead>
                     <tr>
+                        <th>Model</th>
                         <th>BarCode</th>
                         <th>ProductPrice</th>
                         <th>ProductName</th>
@@ -126,6 +127,7 @@
                     @foreach (var item in Model)
                     {
                     <tr>
+                        <td><img src="~/Images/@(item.BarCode).jpg" width="100" height="100" /></td>
                         <td>@item.BarCode</td>
                         <td>@item.ProductPrice</td>
                         <td>@item.ProductName</td>
