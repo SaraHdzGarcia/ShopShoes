@@ -1,6 +1,7 @@
 ﻿using ShoesShop.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -36,6 +37,7 @@ namespace ShoesShop.Controllers
 
         public ActionResult Niña()
         {
+            ViewBag.ruta= Server.MapPath("~") + @"Images" + (".jpg");
             return View(dbCtx.Products.ToList().Where(x => x.CategoryID == 4).OrderBy(x => x.BarCode));
         }
     }

@@ -125,11 +125,13 @@
                 <tbody>
                     @foreach (var item in Model)
                     {
-                        <tr>
-                            <td>@item.BarCode</td>
-                            <td>@item.ProductPrice</td>
-                            <td>@item.ProductName</td>
-                        </tr>
+                    <tr>
+                        <td><img src="~/Images/@(item.BarCode).jpg" width="100" height="100" /></td>
+                        <td>@item.BarCode</td>
+                        <td>@item.ProductPrice</td>
+                        <td>@item.ProductName</td>
+
+                    </tr>
                     }
                 </tbody>
             </table>
