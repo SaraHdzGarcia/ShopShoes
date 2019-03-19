@@ -107,10 +107,10 @@
                             <a href="#">Categorias</a>
 
                             <ul class="dropdown">
-                                <li><a href="#">Dama</a></li>
-                                <li><a href="#">Caballero</a></li>
-                                <li><a href="#">Niño</a></li>
-                                <li><a href="#">Niña</a></li>
+                                <li><a href="@Url.Action("Dama","Index")">Dama</a></li>
+                                <li><a href="@Url.Action("Caballero","Index")">Caballero</a></li>
+                                <li><a href="@Url.Action("Niño","Index")">Niño</a></li>
+                                <li><a href="@Url.Action("Niña","Index")">Niña</a></li>
                             </ul>
 
                         </li>
@@ -125,20 +125,21 @@
 
         @if (Model != null)
         {
-            <table>
+            <table align="center" width="100" border="1" cellpadding="0" cellspacing="1" 
+                   bordercolor="#000000" style="border-collapse:collapse; border-color:#ddd;">
                 <thead>
                     <tr>
-                        <th>Model</th>
-                        <th>BarCode</th>
-                        <th>ProductPrice</th>
-                        <th>ProductName</th>
+                        <th>Modelo</th>
+                        <th>Codigo</th>
+                        <th>Precio</th>
+                        <th>Nombre</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var item in Model)
                     {
                     <tr>
-                        <td><img src="~/Images/@(item.BarCode).jpg" width="100" height="100" /></td>
+                        <td><img src="~/Images/@(item.BarCode).jpg" width="150" height="150" /></td>
                         <td>@item.BarCode</td>
                         <td>@item.ProductPrice</td>
                         <td>@item.ProductName</td>
@@ -158,10 +159,11 @@
                             </div>
                             <div class="col-md-6 col-lg-4">
                                 <ul class="list-unstyled">
-                                    <li><a href="#">Caballero</a></li>
-                                    <li><a href="#">Dama</a></li>
-                                    <li><a href="#">Niño</a></li>
-                                    <li><a href="#">Niña</a></li>
+
+                                    <li><a href="@Url.Action("Caballero","Index")">Caballero</a></li>
+                                    <li><a href="@Url.Action("Dama","Index")">Dama</a></li>
+                                    <li><a href="@Url.Action("Niño","Index")">Niño</a></li>
+                                    <li><a href="@Url.Action("Niña","Index")">Niña</a></li>
                                 </ul>
                             </div>
                             <div class="col-md-6 col-lg-4">
