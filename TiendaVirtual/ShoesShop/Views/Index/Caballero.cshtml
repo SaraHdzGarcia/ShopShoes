@@ -44,9 +44,20 @@
 
                         <div class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">
                             <form action="" class="site-block-top-search">
-                                <i class="icon fas fa-search"></i>
-                                <input type="text" class="form-control border-0" placeholder="Buscar">
-                            </form>
+                                <p>
+                                    @using (Html.BeginForm())
+                                    {
+                                <p>
+                                    <input type="text" name="inpBuscar" class="form-control"
+                                           placeholder="Introduzca el texto de búsqueda" />
+                                    @*Producto a buscar: @Html.TextBox("palabra")*@
+                                    @*<input type="text" @*value="Filter" />*@
+                                </p>
+                                }
+                                    </p>
+                                    <i class="icon fas fa-search"></i>
+                                
+                                </form>
                         </div>
 
                         <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
