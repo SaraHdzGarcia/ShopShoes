@@ -28,5 +28,15 @@ namespace ShoesShop.Controllers
         {
             return View(dbCtx.Products.ToList().Where(x=>x.CategoryID==2).OrderBy(x=>x.BarCode));
         }
+
+        public ActionResult Niño()
+        {
+            return View(dbCtx.Products.ToList().Where(x => x.CategoryID == 3).OrderBy(x => x.BarCode));
+        }
+
+        public ActionResult Niña()
+        {
+            return View(dbCtx.Products.ToList().Where(x => x.CategoryID == 4).OrderBy(x => x.BarCode));
+        }
     }
 }
