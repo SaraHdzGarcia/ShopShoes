@@ -43,5 +43,7 @@ namespace ShoesShop.Controllers
             ViewBag.ruta= Server.MapPath("~") + @"Images" + (".jpg");
             return View(dbCtx.Products.ToList().Where(x => x.CategoryID == 4).OrderBy(x => x.BarCode));
         }
+
+
     }
 }
