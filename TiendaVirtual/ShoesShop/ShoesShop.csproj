@@ -2189,6 +2189,8 @@
     <Content Include="Views\Index\Dama.cshtml" />
     <Content Include="Views\Index\Niño.cshtml" />
     <Content Include="Views\Index\Niña.cshtml" />
+    <Content Include="Views\Index\Buscar.cshtml" />
+    <Content Include="Views\Index\Caballero2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
