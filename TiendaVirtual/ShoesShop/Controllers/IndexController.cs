@@ -35,7 +35,7 @@ namespace ShoesShop.Controllers
 
             if (!String.IsNullOrEmpty(palabra))
             {
-                product = product.Where(l => l.ProductName.Contains(palabra));
+                product = product.Where(l => l.ProductName.Contains(palabra)&& l.CategoryID==1);
             }
 
             Producto = product.ToList();
@@ -44,7 +44,8 @@ namespace ShoesShop.Controllers
         }
         #endregion
 
-        public ActionResult Dama()
+        #region DAMA
+        public ActionResult Dama3()
         {
             ViewBag.ruta = Server.MapPath("~") + @"Images" + (".jpg");
             return View(dbCtx.Products.ToList().Where(x=>x.CategoryID==2).OrderBy(x=>x.BarCode));
@@ -61,15 +62,15 @@ namespace ShoesShop.Controllers
 
             if (!String.IsNullOrEmpty(palabra))
             {
-                product = product.Where(l => l.ProductName.Contains(palabra));
+                product = product.Where(l => l.ProductName.Contains(palabra) && l.CategoryID==2);
             }
 
             Producto = product.ToList();
 
 
             return View(Producto);
-            //return View(dbCtx.Products.ToList().Where(x => x.CategoryID == 1 || x.ProductName.Contains(palabra)).OrderBy(x => x.BarCode));
         }
+        #endregion
 
         public ActionResult Niño()
         {
@@ -82,7 +83,6 @@ namespace ShoesShop.Controllers
             ViewBag.ruta= Server.MapPath("~") + @"Images" + (".jpg");
             return View(dbCtx.Products.ToList().Where(x => x.CategoryID == 4).OrderBy(x => x.BarCode));
         }
-
 
     }
 }

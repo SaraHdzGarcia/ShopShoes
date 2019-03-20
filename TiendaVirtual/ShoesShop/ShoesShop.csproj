@@ -2185,12 +2185,12 @@
     <Content Include="Views\Novedades\Novedades.cshtml" />
     <Content Include="Views\Contacto\Contact.cshtml" />
     <Content Include="Views\Index\Index.cshtml" />
-    <Content Include="Views\Index\Dama.cshtml" />
     <Content Include="Views\Index\Niño.cshtml" />
     <Content Include="Views\Index\Niña.cshtml" />
-    <Content Include="Views\Index\Buscar.cshtml" />
     <Content Include="Views\Index\Caballero3.cshtml" />
     <Content Include="Views\Index\Caballero2.cshtml" />
+    <Content Include="Views\Index\Dama2.cshtml" />
+    <Content Include="Views\Index\Dama3.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
