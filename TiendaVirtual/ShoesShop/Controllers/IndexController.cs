@@ -56,8 +56,7 @@ namespace ShoesShop.Controllers
         {
             ViewBag.ruta = Server.MapPath("~") + @"Images" + (".jpg");
             IEnumerable<Products> Producto;
-
-
+            
             var product = from p in dbCtx.Products select p;
 
             if (!String.IsNullOrEmpty(palabra))
@@ -72,16 +71,54 @@ namespace ShoesShop.Controllers
         }
         #endregion
 
-        public ActionResult Niño()
+        #region NIÑO
+        public ActionResult Niño3()
         {
             ViewBag.ruta = Server.MapPath("~") + @"Images" + (".jpg");
             return View(dbCtx.Products.ToList().Where(x => x.CategoryID == 3).OrderBy(x => x.BarCode));
         }
 
-        public ActionResult Niña()
+        public ActionResult Niño2(string palabra)
+        {
+            ViewBag.ruta = Server.MapPath("~") + @"Images" + (".jpg");
+            IEnumerable<Products> Producto;
+            
+            var product = from p in dbCtx.Products select p;
+
+            if (!String.IsNullOrEmpty(palabra))
+            {
+                product = product.Where(l => l.ProductName.Contains(palabra) && l.CategoryID == 3);
+            }
+
+            Producto = product.ToList();
+
+
+            return View(Producto);
+        }
+        #endregion
+
+        public ActionResult Niña3()
         {
             ViewBag.ruta= Server.MapPath("~") + @"Images" + (".jpg");
             return View(dbCtx.Products.ToList().Where(x => x.CategoryID == 4).OrderBy(x => x.BarCode));
+        }
+
+        public ActionResult Niña2(string palabra)
+        {
+            ViewBag.ruta = Server.MapPath("~") + @"Images" + (".jpg");
+            IEnumerable<Products> Producto;
+
+            var product = from p in dbCtx.Products select p;
+
+            if (!String.IsNullOrEmpty(palabra))
+            {
+                product = product.Where(l => l.ProductName.Contains(palabra) && l.CategoryID == 4);
+            }
+
+            Producto = product.ToList();
+
+
+            return View(Producto);
         }
 
     }

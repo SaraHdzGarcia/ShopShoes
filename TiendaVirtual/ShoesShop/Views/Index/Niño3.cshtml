@@ -1,8 +1,8 @@
-﻿
+﻿@model IEnumerable<ShoesShop.Models.Products>
+
 @{
     Layout = null;
 }
-@model IEnumerable<ShoesShop.Models.Products>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -43,10 +43,18 @@
                     <div class="row align-items-center">
 
                         <div class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">
-                            <form action="" class="site-block-top-search">
-                                <i class="icon fas fa-search"></i>
-                                <input type="text" class="form-control border-0" placeholder="Buscar">
-                            </form>
+                            @*<form action="" class="site-block-top-search">*@
+
+                            @using (Html.BeginForm("Niño2", "Index"))
+                            {
+
+
+                                <i class="icon fas fa-search">
+                                    @Html.TextBox("palabra")
+                                </i>
+
+                            }
+                            @*</form>*@
                         </div>
 
                         <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
@@ -96,10 +104,10 @@
                             <a href="#">Categorias</a>
 
                             <ul class="dropdown">
-                                <li><a href="@Url.Action("Dama","Index")">Dama</a></li>
+                                <li><a href="@Url.Action("Dama3","Index")">Dama</a></li>
                                 <li><a href="@Url.Action("Caballero3","Index")">Caballero</a></li>
-                                <li><a href="@Url.Action("Niño","Index")">Niño</a></li>
-                                <li><a href="@Url.Action("Niña","Index")">Niña</a></li>
+                                <li><a href="@Url.Action("Niño3","Index")">Niño</a></li>
+                                <li><a href="@Url.Action("Niña3","Index")">Niña</a></li>
                             </ul>
 
                         </li>
@@ -112,31 +120,45 @@
 
         </header>
 
-        @if (Model != null)
-        {
-            <table>
-                <thead>
-                    <tr>
-                        <th>Model</th>
-                        <th>BarCode</th>
-                        <th>ProductPrice</th>
-                        <th>ProductName</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model)
-                    {
-                    <tr>
-                        <td><img src="~/Images/@(item.BarCode).jpg" width="100" height="100" /></td>
-                        <td>@item.BarCode</td>
-                        <td>@item.ProductPrice</td>
-                        <td>@item.ProductName</td>
+        <table class="table">
+            <tr>
+                <th>
+                    Modelo
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProductName)
+                </th>
 
-                    </tr>
-                    }
-                </tbody>
-            </table>
-        }
+                <th>
+                    @Html.DisplayNameFor(model => model.ProductPrice)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.BarCode)
+                </th>
+
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td><img src="~/Images/@(item.BarCode).jpg" width="100" height="100" /></td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductName)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductPrice)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BarCode)
+                    </td>
+
+                </tr>
+            }
+
+        </table>
 
         <footer class="site-footer border-top">
             <div class="container">
@@ -148,10 +170,11 @@
                             </div>
                             <div class="col-md-6 col-lg-4">
                                 <ul class="list-unstyled">
+
                                     <li><a href="@Url.Action("Caballero3","Index")">Caballero</a></li>
-                                    <li><a href="@Url.Action("Dama","Index")">Dama</a></li>
-                                    <li><a href="@Url.Action("Niño","Index")">Niño</a></li>
-                                    <li><a href="@Url.Action("Niña","Index")">Niña</a></li>
+                                    <li><a href="@Url.Action("Dama3","Index")">Dama</a></li>
+                                    <li><a href="@Url.Action("Niño3","Index")">Niño</a></li>
+                                    <li><a href="@Url.Action("Niña3","Index")">Niña</a></li>
                                 </ul>
                             </div>
                             <div class="col-md-6 col-lg-4">
@@ -200,4 +223,3 @@
 
 </body>
 </html>
-
