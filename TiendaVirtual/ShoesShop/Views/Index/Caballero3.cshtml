@@ -1,8 +1,8 @@
-﻿
+﻿@model IEnumerable<ShoesShop.Models.Products>
+
 @{
     Layout = null;
 }
-@model IEnumerable<ShoesShop.Models.Products>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -43,21 +43,18 @@
                     <div class="row align-items-center">
 
                         <div class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">
-                            <form action="" class="site-block-top-search">
-                                <p>
-                                    @using (Html.BeginForm())
-                                    {
-                                <p>
-                                    <input type="text" name="inpBuscar" class="form-control"
-                                           placeholder="Introduzca el texto de búsqueda" />
-                                    @*Producto a buscar: @Html.TextBox("palabra")*@
-                                    @*<input type="text" @*value="Filter" />*@
-                                </p>
-                                }
-                                    </p>
-                                    <i class="icon fas fa-search"></i>
+                            @*<form action="" class="site-block-top-search">*@
+
+                            @using (Html.BeginForm("Caballero2", "Index"))
+                            {
                                 
-                                </form>
+                                
+                            <i class="icon fas fa-search">
+                                @Html.TextBox("palabra", new { htmlAttributes = new { @placeholder = "Producto" } })
+                                </i>
+                                
+                            }
+                            @*</form>*@
                         </div>
 
                         <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
@@ -123,31 +120,45 @@
 
         </header>
 
-        @if (Model != null)
-        {
-            <table align="center" width="100" border="1" cellpadding="0" cellspacing="1" 
-                   bordercolor="#000000" style="border-collapse:collapse; border-color:#ddd;">
-                <thead>
-                    <tr>
-                        <th>Modelo</th>
-                        <th>Codigo</th>
-                        <th>Precio</th>
-                        <th>Nombre</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model)
-                    {
-                    <tr>
-                        <td><img src="~/Images/@(item.BarCode).jpg" width="150" height="150" /></td>
-                        <td>@item.BarCode</td>
-                        <td>@item.ProductPrice</td>
-                        <td>@item.ProductName</td>
-                    </tr>
-                    }
-                </tbody>
-            </table>
-        }
+        <table class="table">
+            <tr>
+                <th>
+                    Modelo
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProductName)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.ProductPrice)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.BarCode)
+                </th>
+
+            </tr>
+
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td><img src="~/Images/@(item.BarCode).jpg" width="100" height="100" /></td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductPrice)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.BarCode)
+                </td>
+
+            </tr>
+            }
+
+        </table>
 
         <footer class="site-footer border-top">
             <div class="container">

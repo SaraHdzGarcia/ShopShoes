@@ -18,32 +18,31 @@ namespace ShoesShop.Controllers
             return View();
         }
 
-
-        public ActionResult Caballero()
+        #region CABALLERO
+        public ActionResult Caballero3()
         {
             ViewBag.ruta = Server.MapPath("~") + @"Images" + (".jpg");
             return View(dbCtx.Products.ToList().Where(x=>x.CategoryID==1).OrderBy(x=>x.BarCode));
         }
+
         //buscar
         public ActionResult Caballero2(string palabra)
         {
             ViewBag.ruta = Server.MapPath("~") + @"Images" + (".jpg");
             IEnumerable<Products> Producto;
-
-
+            
             var product = from p in dbCtx.Products select p;
 
             if (!String.IsNullOrEmpty(palabra))
             {
-                product = product.Where(l => l.ProductName.ToUpper().Contains(palabra.ToUpper()) && (l.CategoryID == 1)).OrderBy(x => x.BarCode);
+                product = product.Where(l => l.ProductName.Contains(palabra));
             }
 
             Producto = product.ToList();
 
-
             return View(Producto);
-            //return View(dbCtx.Products.ToList().Where(x => x.CategoryID == 1 || x.ProductName.Contains(palabra)).OrderBy(x => x.BarCode));
         }
+        #endregion
 
         public ActionResult Dama()
         {
@@ -62,7 +61,7 @@ namespace ShoesShop.Controllers
 
             if (!String.IsNullOrEmpty(palabra))
             {
-                product = product.Where(l => l.ProductName.ToUpper().Contains(palabra.ToUpper()) && (l.CategoryID == 2)).OrderBy(x => x.BarCode);
+                product = product.Where(l => l.ProductName.Contains(palabra));
             }
 
             Producto = product.ToList();
