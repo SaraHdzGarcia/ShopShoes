@@ -97,6 +97,7 @@ namespace ShoesShop.Controllers
         }
         #endregion
 
+        #region NIÑA
         public ActionResult Niña3()
         {
             ViewBag.ruta= Server.MapPath("~") + @"Images" + (".jpg");
@@ -120,6 +121,7 @@ namespace ShoesShop.Controllers
 
             return View(Producto);
         }
+        #endregion
 
     }
 }
