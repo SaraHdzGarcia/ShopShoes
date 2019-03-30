@@ -50,7 +50,7 @@ namespace ShoesShop.Models
         public Userss Userss { get; set; }
 
         public virtual ICollection<Shop>Shops { get; set; }
-        public virtual ICollection<Orders> Orders { get; set; }
+        //public virtual ICollection<Orders> Orders { get; set; }
 
     }
 }

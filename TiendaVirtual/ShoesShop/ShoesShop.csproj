@@ -54,7 +54,7 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Highcharts.Web.Mvc, Version=7.0.3.0, Culture=neutral, PublicKeyToken=90b74bd27a557bd3, processorArchitecture=MSIL">
-      <HintPath>..\packages\Highsoft.Highcharts.7.0.3.1\lib\net40\Highcharts.Web.Mvc.dll</HintPath>
+      <HintPath>..\packages\Highsoft.Highcharts.7.0.3.7\lib\net40\Highcharts.Web.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
@@ -140,7 +140,9 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CarritoController.cs" />
     <Compile Include="Controllers\ContactoController.cs" />
+    <Compile Include="Controllers\GráficasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\IndexController.cs" />
@@ -191,6 +193,30 @@
     <Compile Include="Migrations\201903150431174_v10.Designer.cs">
       <DependentUpon>201903150431174_v10.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903220305146_v11.cs" />
+    <Compile Include="Migrations\201903220305146_v11.Designer.cs">
+      <DependentUpon>201903220305146_v11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903220307205_v12.cs" />
+    <Compile Include="Migrations\201903220307205_v12.Designer.cs">
+      <DependentUpon>201903220307205_v12.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903241704427_v13.cs" />
+    <Compile Include="Migrations\201903241704427_v13.Designer.cs">
+      <DependentUpon>201903241704427_v13.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903241706292_v14.cs" />
+    <Compile Include="Migrations\201903241706292_v14.Designer.cs">
+      <DependentUpon>201903241706292_v14.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903241708053_v15.cs" />
+    <Compile Include="Migrations\201903241708053_v15.Designer.cs">
+      <DependentUpon>201903241708053_v15.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903241710110_v16.cs" />
+    <Compile Include="Migrations\201903241710110_v16.Designer.cs">
+      <DependentUpon>201903241710110_v16.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Categories.cs" />
     <Compile Include="Models\Contact.cs" />
@@ -206,6 +232,7 @@
     <Compile Include="Models\Userss.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="ViewModels\CarritoModel.cs" />
     <Compile Include="ViewModels\ContactModel.cs" />
     <Compile Include="ViewModels\NewsModel.cs" />
     <Compile Include="ViewModels\RegistrationModel.cs" />
@@ -2089,6 +2116,9 @@
     <Content Include="Content\Index\fonts\icomoon\fonts\icomoon.eot" />
     <Content Include="Content\Index\fonts\icomoon\fonts\icomoon.ttf" />
     <Content Include="Content\Index\fonts\icomoon\fonts\icomoon.woff" />
+    <Content Include="Scripts\export-data.js" />
+    <Content Include="Scripts\exporting.js" />
+    <Content Include="Scripts\highcharts.js" />
     <Content Include="Scripts\selection.json" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -2194,11 +2224,15 @@
     <Content Include="Views\Index\Niño2.cshtml" />
     <Content Include="Views\Index\Niña3.cshtml" />
     <Content Include="Views\Index\Niña2.cshtml" />
+    <Content Include="Views\Product\AgregarCarrito.cshtml" />
+    <Content Include="Views\Gráficas\Top2.cshtml" />
+    <Content Include="Views\Gráficas\Dias.cshtml" />
+    <Content Include="Views\Gráficas\Temp.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Files\" />
-    <Folder Include="Views\Product\" />
+    <Folder Include="Views\Carrito\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -2241,6 +2275,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903150431174_v10.resx">
       <DependentUpon>201903150431174_v10.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903220305146_v11.resx">
+      <DependentUpon>201903220305146_v11.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903220307205_v12.resx">
+      <DependentUpon>201903220307205_v12.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903241704427_v13.resx">
+      <DependentUpon>201903241704427_v13.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903241706292_v14.resx">
+      <DependentUpon>201903241706292_v14.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903241708053_v15.resx">
+      <DependentUpon>201903241708053_v15.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903241710110_v16.resx">
+      <DependentUpon>201903241710110_v16.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

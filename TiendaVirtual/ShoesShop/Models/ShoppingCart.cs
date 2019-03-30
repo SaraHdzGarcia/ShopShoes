@@ -35,5 +35,13 @@ namespace ShoesShop.Models
         [Required(ErrorMessage ="Campo obligatorio")]
         [DataType(DataType.Currency)]
         public Decimal Price { get; set; }
+
+        [Required(ErrorMessage ="Campo obligatorio")]
+        [StringLength(12, ErrorMessage = "Longitud maxima de 12")]
+        public String BarCode { get; set; }
+
+        [Required(ErrorMessage ="Campo obligatorio")]
+        [StringLength(70,ErrorMessage ="Longitud maxima de 70")]
+        public String Description { get; set; }
     }
 }

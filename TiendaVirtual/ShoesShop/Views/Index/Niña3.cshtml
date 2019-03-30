@@ -101,7 +101,7 @@
 
                         </li>
                         <li class="has-children">
-                            <a href="#">Categorias</a>
+                            <a href="@Url.Action("Index","Image")">Categorias</a>
 
                             <ul class="dropdown">
                                 <li><a href="@Url.Action("Dama3","Index")">Dama</a></li>
@@ -141,21 +141,22 @@
 
             @foreach (var item in Model)
             {
-                <tr>
-                    <td><img src="~/Images/@(item.BarCode).jpg" width="100" height="100" /></td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ProductName)
-                    </td>
+            <tr>
+                <td><img src="~/Images/@(item.BarCode).jpg" width="100" height="100" /></td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
 
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ProductPrice)
-                    </td>
+                <td>
+                    @String.Format("{0:N2}", item.ProductPrice)
+                </td>
 
-                    <td>
-                        @Html.DisplayFor(modelItem => item.BarCode)
-                    </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BarCode)
+                </td>
+                <td>@Html.ActionLink("Agregar", "AgregarCarrito", "Carrito", new { BarCode = item.BarCode })</td>
 
-                </tr>
+            </tr>
             }
 
         </table>

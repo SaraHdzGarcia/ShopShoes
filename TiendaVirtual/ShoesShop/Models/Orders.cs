@@ -16,11 +16,11 @@ namespace ShoesShop.Models
         [Range(0, int.MaxValue, ErrorMessage = "Acepta valores enteros")]
         public int UserID { get; set; }
         public Userss Userss { get; set; }
-
-        [ForeignKey("Employees")]
-        [Range(0, int.MaxValue, ErrorMessage = "Acepta valores enteros")]
-        public int EmployeeID { get; set; }
-        public Employees Employees { get; set; }
+        
+        //[ForeignKey("Employees")]
+        //[Range(0, int.MaxValue, ErrorMessage = "Acepta valores enteros")]
+        //public int EmployeeID { get; set; }
+        //public Employees Employees { get; set; }
 
         [DataType(DataType.DateTime)]
         public DateTime OrderDate { get; set; }
