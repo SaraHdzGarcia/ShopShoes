@@ -1,0 +1,195 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Grey´s Shoes</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700">
+    <link rel="stylesheet" href="~/Content/Index/bootstrap/style.css">
+
+    <link rel="stylesheet" href="~/Content/Index/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/Index/magnific-popup.css">
+    <link rel="stylesheet" href="~/Content/Index/jquery-ui.css">
+    <link rel="stylesheet" href="~/Content/Index/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Content/Index/owl.theme.default.min.css">
+
+
+    <link rel="stylesheet" href="~/Content/Index/aos.css">
+
+    <link rel="stylesheet" href="~/Content/Index/style.css">
+
+    <link href="~/Content/Novedades/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+    <div class="site-wrap">
+
+        <header class="site-navbar" role="banner">
+
+            <div class="site-navbar-top">
+
+                <div class="container">
+
+                    <div class="row align-items-center">
+
+                        <div class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">
+                            @*<form action="" class="site-block-top-search">*@
+
+                            @using (Html.BeginForm("Caballero2", "Index"))
+                            {
+
+
+                                <i class="icon fas fa-search">
+                                    @Html.TextBox("palabra")
+                                </i>
+
+                            }
+                            @*</form>*@
+                        </div>
+
+                        <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
+                            <div class="site-logo">
+                                <a href="@Url.Action("Index","Index")" class="js-logo-clone">GREY´S SHOES</a>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-md-4 order-3 order-md-3 text-right">
+                            <div class="site-top-icons">
+
+                                <ul>
+                                    <li><a href="#"><i class="icon fas fa-user"></i></a></li>
+                                    <li><a href="#"><i class="icon fas fa-heart"></i></a></li>
+                                    <li>
+                                        <a href="cart.html" class="site-cart">
+                                            <i class="icon fas fa-shopping-cart"></i>
+                                        </a>
+                                    </li>
+                                    <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
+                                </ul>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <nav class="site-navigation text-right text-md-center" role="navigation">
+                <div class="container">
+                    <ul class="site-menu js-clone-nav d-none d-md-block">
+
+                        <li><a href="@Url.Action("Dama3","Index")">Dama</a></li>
+                        <li><a href="@Url.Action("Caballero3","Index")">Caballero</a></li>
+                        <li><a href="@Url.Action("Niño3","Index")">Niño</a></li>
+                        <li><a href="@Url.Action("Niña3","Index")">Niña</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <div class="bg-light py-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 mb-0">
+                    <a href="@Url.Action("Index","Image")">Inicio</a> 
+                    <span class="mx-2 mb-0">/</span> 
+                    <strong class="text-black">Mis articulos</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="site-section">
+            <div class="container">
+                <div class="row mb-5">
+                    <form class="col-md-12" method="post">
+                        <div class="site-blocks-table">
+
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="product-name">ProductName</th>
+                                        <th scope="col" class="product-price">UnitPrice</th>
+                                        <th scope="col" class="product-quantity">Quantity</th>
+                                        <th scope="col" class="product-total">Amount</th>
+                                        <th scope="col">Cancelar</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{
+                                        double total = 0;
+                                    }
+                                    @if (Session["shoppingCart"] != null)
+                                    {
+
+                                        foreach (var item in (List<ShoesShop.ViewModels.ShoppingCartModel>)Session["shoppingCart"])
+                                        {
+                                            total += (double)(item.Quantity * item.Price);
+                                    <tr>
+                                        <td>@item.Description</td>
+                                        <td>@String.Format("{0:N2}", item.Price)</td>
+                                        <td>
+                                                <input type="text" class="form-control text-center" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                                          </td>
+
+                                        @*<td>@item.Quantity</td>*@
+                                        <td>@String.Format("{0:N2}", (item.Quantity * item.Price))</td>
+                                        <td>@Html.ActionLink("Eliminar", "Delete", "ShoppingCart", new { Id = item.Products.ProductID }, null)</td>
+                                    </tr>
+                                        }
+                                    }
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th colspan="4">Amount</th>
+                                        <th>@String.Format("{0:N2}", total)</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+
+                        </div>
+                    </form>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row mb-5">
+                            <div class="col-md-6 mb-3 mb-md-0">
+                                <button class="btn btn-primary btn-sm btn-block">Terminar compra</button>
+                            </div>
+                            <div class="col-md-6">
+                                @Html.ActionLink("Seguir Comprando", "Index", "Image", new { @class = "btn btn-outline-primary btn-sm btn-block" }, null)
+                            </div>
+                        </div>
+                    </div>
+
+                    
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/jquery-ui.js"></script>
+    <script src="~/Scripts/popper.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/owl.carousel.min.js"></script>
+    <script src="~/Scripts/jquery.magnific-popup.min.js"></script>
+    <script src="~/Scripts/aos.js"></script>
+
+    <script src="~/Scripts/main.js"></script>
+
+</body>
+</html>

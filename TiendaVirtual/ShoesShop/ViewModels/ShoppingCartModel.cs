@@ -1,0 +1,22 @@
+﻿using ShoesShop.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace ShoesShop.ViewModels
+{
+    public class ShoppingCartModel
+    {
+        public ShoppingCartModel (Products products)
+        {
+            this.Products = products;
+        }
+
+        public Products Products { get; set; }
+        public string Description { get; set; }
+        public decimal Price { get; set; }
+        public int Quantity { get; set; }
+        public decimal Total { get; set; }
+    }
+}

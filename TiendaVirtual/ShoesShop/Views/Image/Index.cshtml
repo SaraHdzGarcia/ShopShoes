@@ -1,9 +1,10 @@
-﻿
+﻿@model IEnumerable<ShoesShop.Models.Products>
+
 @{
     Layout = null;
 }
 
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Grey´s Shoes</title>
@@ -109,12 +110,51 @@
             </div>
         </div>
 
-        @foreach (var item in ViewBag.lista)
+        <table>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProductName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BarCode)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProductPrice)
+                </th>
+                <th></th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
             {
-               <img src="~/Images/@item" width="300" height="300" />
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BarCode)
+                    </td>
+                    <td>
+                    <td>
+                        @String.Format("{0:N2}", item.ProductPrice)
+                    </td>
+                    <td>
+                        <img src="@Url.Content("~/Images/" + item.BarCode + ".jpg")" class="img-responsive" width="128px" height="128px" />
+                    </td>
+                    <td>
+                        @Html.ActionLink("Agregar", "AgregarCarrito", "ShoppingCart", new { productID = item.ProductID }, new { @class = "btn btn-info btn-large" })
+                    </td>
+                </tr>
             }
-        
-<footer class="site-footer border-top">
+
+        </table>
+
+        @*@foreach (var item in ViewBag.lista)
+        {
+           <img src="~/Images/@item" width="300" height="300" />
+        }*@
+
+        <footer class="site-footer border-top">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 mb-5 mb-lg-0">
