@@ -1,0 +1,265 @@
+﻿@model ShoesShop.ViewModels.PurchaseDModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Grey´s Shoes</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700">
+    <link rel="stylesheet" href="~/Content/Index/bootstrap/style.css">
+
+    <link rel="stylesheet" href="~/Content/Index/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/Index/magnific-popup.css">
+    <link rel="stylesheet" href="~/Content/Index/jquery-ui.css">
+    <link rel="stylesheet" href="~/Content/Index/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Content/Index/owl.theme.default.min.css">
+
+
+    <link rel="stylesheet" href="~/Content/Index/aos.css">
+
+    <link rel="stylesheet" href="~/Content/Index/style.css">
+
+    <link href="~/Content/Novedades/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+    <div class="site-wrap">
+
+        <header class="site-navbar" role="banner">
+
+            <div class="site-navbar-top">
+
+                <div class="container">
+
+                    <div class="row align-items-center">
+
+                        <div class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">
+                            @*<form action="" class="site-block-top-search">*@
+
+                            @using (Html.BeginForm("Caballero2", "Index"))
+                            {
+
+
+                                <i class="icon fas fa-search">
+                                    @Html.TextBox("palabra")
+                                </i>
+
+                            }
+                            @*</form>*@
+                        </div>
+
+                        <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
+                            <div class="site-logo">
+                                <a href="@Url.Action("Index","Index")" class="js-logo-clone">GREY´S SHOES</a>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-md-4 order-3 order-md-3 text-right">
+                            <div class="site-top-icons">
+
+                                <ul>
+                                    <li><a href="#"><i class="icon fas fa-user"></i></a></li>
+                                    <li><a href="#"><i class="icon fas fa-heart"></i></a></li>
+                                    <li>
+                                        <a href="cart.html" class="site-cart">
+                                            <i class="icon fas fa-shopping-cart"></i>
+                                        </a>
+                                    </li>
+                                    <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
+                                </ul>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </header>
+
+        <div class="bg-light py-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 mb-0"><a href="@Url.Action("Index","Image")">Inicio</a> <span class="mx-2 mb-0">/</span> <a href="@Url.Action("AgregarCarrito","ShoppingCart")">Carrito</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Factura</strong></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="site-section">
+            <div class="container">
+                <div class="row mb-5">
+                    <div class="col-md-12">
+
+                    </div>
+                </div>
+
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    @*<div class="row">*@
+                        @*<div class="col-md-6 mb-5 mb-md-0">*@
+                            <h4>Detalles de la Compra</h4>
+                            @*<div class="p-3 p-lg-5 border d-inline-block">*@
+                                <hr />
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <div class="form-group row">
+                                    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2 text-black " })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2 text-black" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2 text-black" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    @Html.LabelFor(model => model.State, htmlAttributes: new { @class = "control-label col-md-2 text-black" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.State, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.State, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    @Html.LabelFor(model => model.Country, htmlAttributes: new { @class = "control-label col-md-2 text-black" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.Country, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Country, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    @Html.LabelFor(model => model.PostalCode, htmlAttributes: new { @class = "control-label col-md-2 text-black" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.PostalCode, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.PostalCode, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    @Html.LabelFor(model => model.Telephone, htmlAttributes: new { @class = "control-label col-md-2 text-black" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.Telephone, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Telephone, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2 text-black" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <p class="text-black">Realizar pago por medio de:</p>
+
+                                <div class="col-md-6">
+                                    @Html.RadioButtonFor(model => model.Payment, "Tarjeta de Credito o Débido", htmlAttributes: new { @class = "text-black" }) Tarjeta de Credito
+
+                                </div>
+                                <div class="col-md-6">
+                                    @Html.RadioButtonFor(model => model.Payment, "Efectivo") Efectivo
+                                </div>
+                                <div class="col-md-6">
+                                    @Html.RadioButtonFor(model => model.Payment, "Paypal") Paypal
+                                </div>
+
+
+                                <div class="form-group">
+                                    <a href="@Url.Action("Seguimiento","OrderTracking")"> <input type="submit" value="Realizar Compra" class="btn btn-primary btn-lg py-3 btn-block" /></a>
+                                </div>
+                            @*</div>
+                        </div>
+                    </div>*@
+                }
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer border-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3 class="footer-heading mb-4">Acceder a:</h3>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <ul class="list-unstyled">
+
+                                <li><a href="@Url.Action("Caballero3","Index")">Caballero</a></li>
+                                <li><a href="@Url.Action("Dama3","Index")">Dama</a></li>
+                                <li><a href="@Url.Action("Niño3","Index")">Niño</a></li>
+                                <li><a href="@Url.Action("Niña3","Index")">Niña</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <ul class="list-unstyled">
+                                <li><a href="@Url.Action("Contact","Contacto")">Contacto</a></li>
+                                <li><a href="@Url.Action("Novedades","Novedades")">Novedades</a></li>
+                                <li><a href="#">Envio</a></li>
+                                <li><a href="@Url.Action("Login","Login")">Iniciar Sesion</a></li>
+                                <li><a href="@Url.Action("Registrar","Login")">Registrarse</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
+                    <h3 class="footer-heading mb-4">Grey´s Shoes</h3>
+                    <a href="#" class="block-6">
+                        <img src="~/Images/hero_1.png" alt="Image placeholder" class="img-fluid rounded mb-4">
+                        <h3 class="font-weight-light  mb-0">El mejor lugar, rapido y seguro para realizar tu compra</h3>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="block-5 mb-5">
+                        <h3 class="footer-heading mb-4">Informacion</h3>
+                        <ul class="list-unstyled">
+                            <li class="address">Dirección Calle Condesa #380, Fracc.La Condesa, Escobedo N.L.</li>
+                            <li class="phone"><a href="tel://23923929210">(044)812292329 (Nuevo Leon) Grey´s Shoes Company.</a></li>
+                            <li class="email">greysshoesc@gmail.com</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/aos.js"></script>
+
+    <script src="js/main.js"></script>
+
+</body>
+</html>

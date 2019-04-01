@@ -9,11 +9,13 @@ using ShoesShop.Helper;
 using System.IO;
 using System.Data.Entity.Validation;
 using System.Web.Security;
+using System.Data.Entity;
 
 namespace ShoesShop.Controllers
 {
     public class LoginController : Controller
     {
+        DbContextShop dbCtx = new DbContextShop();
         #region Log In
         // GET: Login
         public ActionResult Login(UserModel usm)
@@ -55,17 +57,38 @@ namespace ShoesShop.Controllers
         #endregion
 
         //GET
-        public ActionResult ModificarPerfil()
+        public ActionResult ModificarPerfil(string username,string pass)
         {
-
-            return View();
+            using (DbContextShop dbCtx = new DbContextShop())
+            {
+                var userss = dbCtx.Usersses.Where(x => x.UserName == username && x.Password==pass).SingleOrDefault();
+                return View(userss);
+            }
         }
         
         //POST
         [HttpPost]
-        public ActionResult ModificarPerfil2()
+        public ActionResult ModificarPerfil(string username, string pass,Userss userss)
         {
+
+            if (Session["UserName"] != null)
+            {
+                using(DbContextShop dbCtx=new DbContextShop())
+                {
+                    dbCtx.Entry(userss).State = EntityState.Modified;
+                    dbCtx.SaveChanges();
+                }
+                return RedirectToAction("Index", "Index");
+            }
             return View();
+        }
+
+        public ActionResult Datos()
+        {
+                var usersses = dbCtx.Usersses.ToList();
+                return View(usersses);
+            
+            
         }
 
         #region Registrar
@@ -143,8 +166,10 @@ namespace ShoesShop.Controllers
 
         public ActionResult LogOut()
         {
-
-            FormsAuthentication.SignOut();
+            if (Session["UserName"] != null)
+            {
+                Session.RemoveAll();
+            }
             return RedirectToAction("Index", "Image");
         }
     }

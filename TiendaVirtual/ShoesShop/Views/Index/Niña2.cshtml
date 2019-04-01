@@ -31,186 +31,368 @@
 </head>
 
 <body>
+    @if (Session["UserName"] == null)
+    {
+        <div class="site-wrap">
 
-    <div class="site-wrap">
+            <header class="site-navbar" role="banner">
 
-        <header class="site-navbar" role="banner">
+                <div class="site-navbar-top">
 
-            <div class="site-navbar-top">
+                    <div class="container">
 
+                        <div class="row align-items-center">
+
+                            <div class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">
+                                @*<form action="" class="site-block-top-search">*@
+                                @using (Html.BeginForm("Niña2", "Index"))
+                                {
+                                    <i class="icon fas fa-search">
+                                        @Html.TextBox("palabra")
+                                    </i>
+                                }
+                                @*</form>*@
+                            </div>
+
+                            <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
+                                <div class="site-logo">
+                                    <a href="@Url.Action("Index", "Index")" class="js-logo-clone">GREY´S SHOES</a>
+                                </div>
+                            </div>
+
+                            <div class="col-6 col-md-4 order-3 order-md-3 text-right">
+                                <div class="site-top-icons">
+
+                                    <ul>
+                                        <li><a href="#"><i class="icon fas fa-user"></i></a></li>
+                                        <li>
+                                            <a href="@Url.Action("AgregarCarrito", "ShoppingCart")" class="site-cart">
+                                                <i class="icon fas fa-shopping-cart"></i>
+                                            </a>
+                                        </li>
+                                        <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
+                                    </ul>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <nav class="site-navigation text-right text-md-center" role="navigation">
+                    <div class="container">
+
+                        <ul class="site-menu js-clone-nav d-none d-md-block">
+                            <li class="has-children active">
+                                <a href="@Url.Action("Index","Index")">Inicio</a>
+                                <ul class="dropdown">
+                                    <li><a href="@Url.Action("Login", "Login")">Iniciar Sesion</a></li>
+                                    <li><a href="@Url.Action("Registrar", "Login")">Registrate</a></li>
+
+                                </ul>
+
+                            </li>
+                            <li class="has-children">
+                                <a href="@Url.Action("Index", "Image")">Categorias</a>
+
+                                <ul class="dropdown">
+                                    <li><a href="@Url.Action("Dama3", "Index")">Dama</a></li>
+                                    <li><a href="@Url.Action("Caballero3", "Index")">Caballero</a></li>
+                                    <li><a href="@Url.Action("Niño3", "Index")">Niño</a></li>
+                                    <li><a href="@Url.Action("Niña3", "Index")">Niña</a></li>
+                                </ul>
+
+                            </li>
+                            <li><a href="@Url.Action("Novedades", "Novedades")">Novedades</a></li>
+                            <li><a href="@Url.Action("Contact", "Contacto")">Contacto</a></li>
+                        </ul>
+
+                    </div>
+                </nav>
+
+            </header>
+
+            <table class="table">
+                <tr>
+                    <th>
+                        Modelo
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ProductName)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.ProductPrice)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.BarCode)
+                    </th>
+
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td><img src="~/Images/@(item.BarCode).jpg" width="100" height="100" /></td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ProductName)
+                        </td>
+
+                        <td>
+                            @String.Format("{0:N2}", item.ProductPrice)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BarCode)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Agregar", "AgregarCarrito", "ShoppingCart", new { productID = item.ProductID }, new { @class = "btn btn-info btn-large" })
+
+                        </td>
+
+                    </tr>
+                }
+
+            </table>
+
+            <footer class="site-footer border-top">
                 <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 mb-5 mb-lg-0">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h3 class="footer-heading mb-4">Acceder a:</h3>
+                                </div>
+                                <div class="col-md-6 col-lg-4">
+                                    <ul class="list-unstyled">
 
-                    <div class="row align-items-center">
+                                        <li><a href="@Url.Action("Caballero3", "Index")">Caballero</a></li>
+                                        <li><a href="@Url.Action("Dama3", "Index")">Dama</a></li>
+                                        <li><a href="@Url.Action("Niño3", "Index")">Niño</a></li>
+                                        <li><a href="@Url.Action("Niña3", "Index")">Niña</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6 col-lg-4">
+                                    <ul class="list-unstyled">
+                                        <li><a href="@Url.Action("Contact", "Contacto")">Contacto</a></li>
+                                        <li><a href="@Url.Action("Novedades", "Novedades")">Novedades</a></li>
+                                        <li><a href="#">Envio</a></li>
+                                        <li><a href="@Url.Action("Login", "Login")">Iniciar Sesion</a></li>
+                                        <li><a href="@Url.Action("Registrar", "Login")">Registrarse</a></li>
+                                    </ul>
+                                </div>
 
-                        <div class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">
-                            @*<form action="" class="site-block-top-search">*@
-                            @using (Html.BeginForm("Niña2", "Index"))
-                            {
-                                <i class="icon fas fa-search">
-                                    @Html.TextBox("palabra")
-                                </i>
-                            }
-                            @*</form>*@
-                        </div>
-
-                        <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
-                            <div class="site-logo">
-                                <a href="@Url.Action("Index","Index")" class="js-logo-clone">GREY´S SHOES</a>
                             </div>
                         </div>
-
-                        <div class="col-6 col-md-4 order-3 order-md-3 text-right">
-                            <div class="site-top-icons">
-
-                                <ul>
-                                    <li><a href="#"><i class="icon fas fa-user"></i></a></li>
-                                    <li><a href="#"><i class="icon fas fa-heart"></i></a></li>
-                                    <li>
-                                        <a href="cart.html" class="site-cart">
-                                            <i class="icon fas fa-shopping-cart"></i>
-                                            <span class="count">0</span>
-                                        </a>
-                                    </li>
-                                    <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
+                        <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
+                            <h3 class="footer-heading mb-4">Grey´s Shoes</h3>
+                            <a href="#" class="block-6">
+                                <img src="~/Images/hero_1.png" alt="Image placeholder" class="img-fluid rounded mb-4">
+                                <h3 class="font-weight-light  mb-0">El mejor lugar, rapido y seguro para realizar tu compra</h3>
+                            </a>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="block-5 mb-5">
+                                <h3 class="footer-heading mb-4">Informacion</h3>
+                                <ul class="list-unstyled">
+                                    <li class="address">Dirección Calle Condesa #380, Fracc.La Condesa, Escobedo N.L.</li>
+                                    <li class="phone"><a href="tel://23923929210">(044)812292329 (Nuevo Leon) Grey´s Shoes Company.</a></li>
+                                    <li class="email">greysshoesc@gmail.com</li>
                                 </ul>
-
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    }
+    else
+    {
+        <div class="site-wrap">
+
+            <header class="site-navbar" role="banner">
+
+                <div class="site-navbar-top">
+
+                    <div class="container">
+
+                        <div class="row align-items-center">
+
+                            <div class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">
+                                @*<form action="" class="site-block-top-search">*@
+                                @using (Html.BeginForm("Niña2", "Index"))
+                                {
+                                    <i class="icon fas fa-search">
+                                        @Html.TextBox("palabra")
+                                    </i>
+                                }
+                                @*</form>*@
+                            </div>
+
+                            <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
+                                <div class="site-logo">
+                                    <a href="@Url.Action("Index", "Index")" class="js-logo-clone">GREY´S SHOES</a>
+                                </div>
+                            </div>
+
+                            <div class="col-6 col-md-4 order-3 order-md-3 text-right">
+                                <div class="site-top-icons">
+
+                                    <ul>
+                                        @if (Session["UserName"] != null)
+                                        {
+                                            <h3>@Session["UserName"].ToString()</h3>
+                                        }
+                                        <li><a href="#"><i class="icon fas fa-user"></i></a></li>
+                                        <li>
+                                            <a href="@Url.Action("AgregarCarrito", "ShoppingCart")" class="site-cart">
+                                                <i class="icon fas fa-shopping-cart"></i>
+                                            </a>
+                                        </li>
+                                        <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
+                                    </ul>
+
+                                </div>
+                            </div>
+
                         </div>
 
                     </div>
 
                 </div>
 
-            </div>
+                <nav class="site-navigation text-right text-md-center" role="navigation">
+                    <div class="container">
 
-            <nav class="site-navigation text-right text-md-center" role="navigation">
+                        <ul class="site-menu js-clone-nav d-none d-md-block">
+                            <li>
+                                <a href="@Url.Action("Index","Index")">Inicio</a>
+
+                            </li>
+                            <li class="has-children">
+                                <a href="@Url.Action("Index", "Image")">Categorias</a>
+
+                                <ul class="dropdown">
+                                    <li><a href="@Url.Action("Dama3", "Index")">Dama</a></li>
+                                    <li><a href="@Url.Action("Caballero3", "Index")">Caballero</a></li>
+                                    <li><a href="@Url.Action("Niño3", "Index")">Niño</a></li>
+                                    <li><a href="@Url.Action("Niña3", "Index")">Niña</a></li>
+                                </ul>
+
+                            </li>
+                            <li><a href="@Url.Action("Novedades", "Novedades")">Novedades</a></li>
+                            <li><a href="@Url.Action("Contact", "Contacto")">Contacto</a></li>
+                            <li class="has-children">
+                                <a>Estadisticas</a>
+                                <ul class="dropdown">
+                                    <li><a href="@Url.Action("Top2","Gráficas")">Productos más vendidos</a></li>
+                                    <li><a href="@Url.Action("Dias","Gráficas")">Dias con más afluencia</a></li>
+                                    <li><a href="@Url.Action("Temp","Gráficas")">Temporadas</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    </div>
+                </nav>
+
+            </header>
+
+            <table class="table">
+                <tr>
+                    <th>
+                        Modelo
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ProductName)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.ProductPrice)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.BarCode)
+                    </th>
+
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td><img src="~/Images/@(item.BarCode).jpg" width="100" height="100" /></td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ProductName)
+                        </td>
+
+                        <td>
+                            @String.Format("{0:N2}", item.ProductPrice)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BarCode)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Agregar", "AgregarCarrito", "ShoppingCart", new { productID = item.ProductID }, new { @class = "btn btn-info btn-large" })
+
+                        </td>
+
+                    </tr>
+                }
+
+            </table>
+
+            <footer class="site-footer border-top">
                 <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 mb-5 mb-lg-0">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h3 class="footer-heading mb-4">Acceder a:</h3>
+                                </div>
+                                <div class="col-md-6 col-lg-4">
+                                    <ul class="list-unstyled">
 
-                    <ul class="site-menu js-clone-nav d-none d-md-block">
-                        <li class="has-children active">
-                            <a href="index.html">Inicio</a>
-                            <ul class="dropdown">
-                                <li><a href="@Url.Action("Login","Login")">Iniciar Sesion</a></li>
-                                <li><a href="@Url.Action("Registrar","Login")">Registrate</a></li>
+                                        <li><a href="@Url.Action("Caballero3", "Index")">Caballero</a></li>
+                                        <li><a href="@Url.Action("Dama3", "Index")">Dama</a></li>
+                                        <li><a href="@Url.Action("Niño3", "Index")">Niño</a></li>
+                                        <li><a href="@Url.Action("Niña3", "Index")">Niña</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6 col-lg-4">
+                                    <ul class="list-unstyled">
+                                        <li><a href="@Url.Action("Contact", "Contacto")">Contacto</a></li>
+                                        <li><a href="@Url.Action("Novedades", "Novedades")">Novedades</a></li>
+                                    </ul>
+                                </div>
 
-                            </ul>
-
-                        </li>
-                        <li class="has-children">
-                            <a href="@Url.Action("Index","Image")">Categorias</a>
-
-                            <ul class="dropdown">
-                                <li><a href="@Url.Action("Dama3","Index")">Dama</a></li>
-                                <li><a href="@Url.Action("Caballero3","Index")">Caballero</a></li>
-                                <li><a href="@Url.Action("Niño3","Index")">Niño</a></li>
-                                <li><a href="@Url.Action("Niña3","Index")">Niña</a></li>
-                            </ul>
-
-                        </li>
-                        <li><a href="@Url.Action("Novedades","Novedades")">Novedades</a></li>
-                        <li><a href="@Url.Action("Contact","Contacto")">Contacto</a></li>
-                    </ul>
-
-                </div>
-            </nav>
-
-        </header>
-
-        <table class="table">
-            <tr>
-                <th>
-                    Modelo
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.ProductName)
-                </th>
-
-                <th>
-                    @Html.DisplayNameFor(model => model.ProductPrice)
-                </th>
-
-                <th>
-                    @Html.DisplayNameFor(model => model.BarCode)
-                </th>
-
-            </tr>
-
-            @foreach (var item in Model)
-            {
-            <tr>
-                <td><img src="~/Images/@(item.BarCode).jpg" width="100" height="100" /></td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ProductName)
-                </td>
-
-                <td>
-                    @String.Format("{0:N2}", item.ProductPrice)
-                </td>
-
-                <td>
-                    @Html.DisplayFor(modelItem => item.BarCode)
-                </td>
-                <td>
-                    @Html.ActionLink("Agregar", "AgregarCarrito", "ShoppingCart", new { productID = item.ProductID }, new { @class = "btn btn-info btn-large" })
-
-                </td>
-
-            </tr>
-            }
-
-        </table>
-
-        <footer class="site-footer border-top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 mb-5 mb-lg-0">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h3 class="footer-heading mb-4">Acceder a:</h3>
                             </div>
-                            <div class="col-md-6 col-lg-4">
-                                <ul class="list-unstyled">
-
-                                    <li><a href="@Url.Action("Caballero3","Index")">Caballero</a></li>
-                                    <li><a href="@Url.Action("Dama3","Index")">Dama</a></li>
-                                    <li><a href="@Url.Action("Niño3","Index")">Niño</a></li>
-                                    <li><a href="@Url.Action("Niña3","Index")">Niña</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-md-6 col-lg-4">
-                                <ul class="list-unstyled">
-                                    <li><a href="@Url.Action("Contact","Contacto")">Contacto</a></li>
-                                    <li><a href="@Url.Action("Novedades","Novedades")">Novedades</a></li>
-                                    <li><a href="#">Envio</a></li>
-                                    <li><a href="@Url.Action("Login","Login")">Iniciar Sesion</a></li>
-                                    <li><a href="@Url.Action("Registrar","Login")">Registrarse</a></li>
-                                </ul>
-                            </div>
-
                         </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
-                        <h3 class="footer-heading mb-4">Grey´s Shoes</h3>
-                        <a href="#" class="block-6">
-                            <img src="~/Images/hero_1.png" alt="Image placeholder" class="img-fluid rounded mb-4">
-                            <h3 class="font-weight-light  mb-0">El mejor lugar, rapido y seguro para realizar tu compra</h3>
-                        </a>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="block-5 mb-5">
-                            <h3 class="footer-heading mb-4">Informacion</h3>
-                            <ul class="list-unstyled">
-                                <li class="address">Dirección Calle Condesa #380, Fracc.La Condesa, Escobedo N.L.</li>
-                                <li class="phone"><a href="tel://23923929210">(044)812292329 (Nuevo Leon) Grey´s Shoes Company.</a></li>
-                                <li class="email">greysshoesc@gmail.com</li>
-                            </ul>
+                        <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
+                            <h3 class="footer-heading mb-4">Grey´s Shoes</h3>
+                            <a href="#" class="block-6">
+                                <img src="~/Images/hero_1.png" alt="Image placeholder" class="img-fluid rounded mb-4">
+                                <h3 class="font-weight-light  mb-0">El mejor lugar, rapido y seguro para realizar tu compra</h3>
+                            </a>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="block-5 mb-5">
+                                <h3 class="footer-heading mb-4">Informacion</h3>
+                                <ul class="list-unstyled">
+                                    <li class="address">Dirección Calle Condesa #380, Fracc.La Condesa, Escobedo N.L.</li>
+                                    <li class="phone"><a href="tel://23923929210">(044)812292329 (Nuevo Leon) Grey´s Shoes Company.</a></li>
+                                    <li class="email">greysshoesc@gmail.com</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </footer>
-    </div>
-
+            </footer>
+        </div>
+    }
     <script src="~/Scripts/jquery-3.3.1.min.js"></script>
     <script src="~/Scripts/jquery-ui.js"></script>
     <script src="~/Scripts/popper.min.js"></script>

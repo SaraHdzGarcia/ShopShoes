@@ -67,7 +67,6 @@
 
                                 <ul>
                                     <li><a href="#"><i class="icon fas fa-user"></i></a></li>
-                                    <li><a href="#"><i class="icon fas fa-heart"></i></a></li>
                                     <li>
                                         <a href="cart.html" class="site-cart">
                                             <i class="icon fas fa-shopping-cart"></i>
@@ -119,6 +118,7 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
+                                        <th scope="col" class="product-thumbnail">Model</th>
                                         <th scope="col" class="product-name">ProductName</th>
                                         <th scope="col" class="product-price">UnitPrice</th>
                                         <th scope="col" class="product-quantity">Quantity</th>
@@ -137,11 +137,12 @@
                                         {
                                             total += (double)(item.Quantity * item.Price);
                                     <tr>
+                                        <td><img src="~/Images/@(item.BarCode).jpg" width="100" height="100" /></td>
                                         <td>@item.Description</td>
                                         <td>@String.Format("{0:N2}", item.Price)</td>
                                         <td>
-                                                <input type="text" class="form-control text-center" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                                          </td>
+                                            <input type="text" class="form-control text-center" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                                        </td>
 
                                         @*<td>@item.Quantity</td>*@
                                         <td>@String.Format("{0:N2}", (item.Quantity * item.Price))</td>
@@ -166,7 +167,8 @@
                     <div class="col-md-6">
                         <div class="row mb-5">
                             <div class="col-md-6 mb-3 mb-md-0">
-                                <button class="btn btn-primary btn-sm btn-block">Terminar compra</button>
+                                @Html.ActionLink("Terminar Compra","PurchaseDetail","PurchaseDetail",new { @class= "btn btn-outline-primary btn-sm btn-block" },null)
+                                @*<button class="btn btn-primary btn-sm btn-block">Terminar compra</button>*@
                             </div>
                             <div class="col-md-6">
                                 @Html.ActionLink("Seguir Comprando", "Index", "Image", new { @class = "btn btn-outline-primary btn-sm btn-block" }, null)

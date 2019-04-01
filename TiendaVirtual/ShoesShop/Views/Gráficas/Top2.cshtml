@@ -21,73 +21,74 @@
 
     @(Html.Highsoft().GetHighcharts(
 
-                        new Highcharts
-                        {
-                            Title = new Title
-                            {
-                                Text = "Top de los más vendidos"
-                            },
-
-                            XAxis = new List<XAxis>
-                            {
-        new XAxis
-        {
-            Categories = new List<string> {
-                "Balerina",
-                "Mocasin Casual",
-                "Derby Escolar",
-                "Flat Oxford Hombre Negro",
-                "Sandalia Ankle",
-                "Negro Coagulado 12cm",
-                "Piel Natural Vacuno",
-                "Rojo Textil Acabado",
-                "Vans Sintetico Unicorn",
-                "Vans Sintetico Green",
-                "Vans Sintetico Chess",
-                "Sandalia Azul",
-                "Sneaker Sintetico Blanco",
-                "Zapatilla Sintetico Charon",
-                "Negro Coagulado 12cm"
-            }
-        }
-                            },
-                            YAxis = new List<YAxis>
-                            {
-        new YAxis
-        {
-            Min = 0,
-            Title = new YAxisTitle
-            {
-                Text = "Ventas (mm)"
-            }
-        }
-                            },
-                            Tooltip = new Tooltip
-                            {
-                                HeaderFormat = "<span style='font-size:10px'>{point.key}</span><table style='font-size:12px'>",
-                                PointFormat = "<tr><td style='color:{series.color};padding:0'>{series.name}: </td><td style='padding:0'><b>{point.y:.1f}&nbsp;mm</b></td></tr>",
-                                FooterFormat = "</table>",
-                                Shared = true,
-                                UseHTML = true
-                            },
-                            PlotOptions = new PlotOptions
-                            {
-                                Column = new PlotOptionsColumn
+                                new Highcharts
                                 {
-                                    PointPadding = 0.2,
-                                    BorderWidth = 0
-                                }
-                            },
-                            Series = new List<Series>
-                            {
-        new ColumnSeries
-        {
-            Name = "Venta",
-            Data = @ViewData["productData"] as List<ColumnSeriesData>
+                                    Title = new Title
+                                    {
+                                        Text = "Top de los más vendidos"
+                                    },
+
+                                    XAxis = new List<XAxis>
+                                    {
+    new XAxis
+    {
+        Categories = new List<string> {
+            "Balerina",
+            "Mocasin Casual",
+            "Derby Escolar",
+            "Flat Oxford Hombre Negro",
+            "Sandalia Ankle",
+            "Negro Coagulado 12cm",
+            "Piel Natural Vacuno",
+            "Rojo Textil Acabado",
+            "Vans Sintetico Unicorn",
+            "Vans Sintetico Green",
+            "Vans Sintetico Chess",
+            "Sandalia Azul",
+            "Sneaker Sintetico Blanco",
+            "Zapatilla Sintetico Charon",
+            "Negro Coagulado 12cm"
         }
-                            }
-                        }
-                        , "chart")
+    }
+                                    },
+                                    YAxis = new List<YAxis>
+                                    {
+    new YAxis
+    {
+        Min = 0,
+        Title = new YAxisTitle
+        {
+            Text = "Ventas (mm)"
+        }
+    }
+                                    },
+                                    Tooltip = new Tooltip
+                                    {
+                                        HeaderFormat = "<span style='font-size:10px'>{point.key}</span><table style='font-size:12px'>",
+                                        PointFormat = "<tr><td style='color:{series.color};padding:0'>{series.name}: </td><td style='padding:0'><b>{point.y:.1f}&nbsp;mm</b></td></tr>",
+                                        FooterFormat = "</table>",
+                                        Shared = true,
+                                        UseHTML = true
+                                    },
+                                    PlotOptions = new PlotOptions
+                                    {
+                                        Column = new PlotOptionsColumn
+                                        {
+                                            PointPadding = 0.2,
+                                            BorderWidth = 0
+                                        }
+                                    },
+                                    Series = new List<Series>
+                                    {
+    new ColumnSeries
+    {
+        Name = "Venta",
+        Data = @ViewData["productData"] as List<ColumnSeriesData>
+    }
+                                    }
+                                }
+                                , "chart")
     )
+    <button class="btn-dark" value="Regresar"><a href="@Url.Action("Index","Index")"></a></button>
 </body>
 </html>

@@ -15,8 +15,6 @@ namespace ShoesShop.Controllers
         // GET: Carrito
         public ActionResult AgregarCarrito(int productID)
         {
-            if (Session["UserName"] == null)
-            {
                 if (Session["shoppingCart"] == null)
                 {
                     List<ShoppingCartModel> shoppingCart = new List<ShoppingCartModel>();
@@ -25,6 +23,7 @@ namespace ShoesShop.Controllers
 
                     ShoppingCartModel item = new ShoppingCartModel(productEntity)
                     {
+                        BarCode = productEntity.BarCode,
                         Description = productEntity.ProductName,
                         Price = productEntity.ProductPrice,
                         Quantity = 1,
@@ -47,6 +46,7 @@ namespace ShoesShop.Controllers
 
                         ShoppingCartModel item = new ShoppingCartModel(productEntity)
                         {
+                            BarCode = productEntity.BarCode,
                             Description = productEntity.ProductName,
                             Price = productEntity.ProductPrice,
                             Quantity = 1,
@@ -62,11 +62,7 @@ namespace ShoesShop.Controllers
 
                     Session["shoppingCart"] = shoppingCart;
                 }
-            }
-            else
-            {
-                return RedirectToAction("Index", "Image");
-            }
+            
 
             return View();
         }
