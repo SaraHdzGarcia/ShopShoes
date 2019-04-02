@@ -183,16 +183,17 @@
 
                                 </div>
                                 <div class="col-md-6">
-                                    @Html.RadioButtonFor(model => model.Payment, "Efectivo") Efectivo
-                                </div>
-                                <div class="col-md-6">
                                     @Html.RadioButtonFor(model => model.Payment, "Paypal") Paypal
                                 </div>
 
 
                                 <div class="form-group">
                                     <a href="@Url.Action("Seguimiento","OrderTracking")"> <input type="submit" value="Realizar Compra" class="btn btn-primary btn-lg py-3 btn-block" /></a>
+                                    <hr />
+                                    @*<a href="@Url.Action("Index","Index")"> <input type="submit" value="Cancelar" class="btn btn-primary btn-lg py-3 btn-block" /></a>*@
                                 </div>
+
+                                @Html.ActionLink("Cancelar","Index","Index")
                             @*</div>
                         </div>
                     </div>*@
