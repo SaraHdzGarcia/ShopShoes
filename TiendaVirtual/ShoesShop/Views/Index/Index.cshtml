@@ -69,7 +69,7 @@
                     <div class="container">
                         <ul class="site-menu js-clone-nav d-none d-md-block">
                             <li class="has-children active">
-                                <a href="index.html">Inicio</a>
+                                <a href="@Url.Action("Index","Index")">Inicio</a>
                                 <ul class="dropdown">
                                     <li><a href="@Url.Action("Login", "Login")">Iniciar Sesion</a></li>
                                     <li><a href="@Url.Action("Registrar", "Login")">Registrate</a></li>
@@ -79,10 +79,10 @@
                             <li class="has-children">
                                 <a href="@Url.Action("Index", "Image")">Categorias</a>
                                 <ul class="dropdown">
-                                    <li><a href="@Url.Action("Dama", "Index")">Dama</a></li>
+                                    <li><a href="@Url.Action("Dama3", "Index")">Dama</a></li>
                                     <li><a href="@Url.Action("Caballero3", "Index")">Caballero</a></li>
-                                    <li><a href="@Url.Action("Niño", "Index")">Niño</a></li>
-                                    <li><a href="@Url.Action("Niña", "Index")">Niña</a></li>
+                                    <li><a href="@Url.Action("Niño3", "Index")">Niño</a></li>
+                                    <li><a href="@Url.Action("Niña3", "Index")">Niña</a></li>
                                 </ul>
                             </li>
                             <li><a href="@Url.Action("Novedades", "Novedades")">Novedades</a></li>
@@ -210,9 +210,9 @@
                                 <div class="col-md-6 col-lg-4">
                                     <ul class="list-unstyled">
                                         <li><a href="@Url.Action("Caballero3", "Index")">Caballero</a></li>
-                                        <li><a href="@Url.Action("Dama", "Index")">Dama</a></li>
-                                        <li><a href="@Url.Action("Niño", "Index")">Niño</a></li>
-                                        <li><a href="@Url.Action("Niña", "Index")">Niña</a></li>
+                                        <li><a href="@Url.Action("Dama3", "Index")">Dama</a></li>
+                                        <li><a href="@Url.Action("Niño3", "Index")">Niño</a></li>
+                                        <li><a href="@Url.Action("Niña3", "Index")">Niña</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-md-6 col-lg-4">
@@ -276,7 +276,7 @@
                                         {
                                             <h3>Bienvenido @Session["UserName"].ToString()</h3>
                                         }
-                                        <li><a href="#"><i class="icon fas fa-user"></i></a></li>
+                                        <li><a href="@Url.Action("ModificarPerfil","Login")"><i class="icon fas fa-user"></i></a></li>
                                         <li>
                                             <a href="@Url.Action("AgregarCarrito", "ShoppingCart")" class="site-cart">
                                                 <i class="icon fas fa-shopping-cart"></i>
@@ -300,8 +300,8 @@
                                 <ul class="dropdown">
                                     <li><a href="@Url.Action("Dama", "Index")">Dama</a></li>
                                     <li><a href="@Url.Action("Caballero3", "Index")">Caballero</a></li>
-                                    <li><a href="@Url.Action("Niño", "Index")">Niño</a></li>
-                                    <li><a href="@Url.Action("Niña", "Index")">Niña</a></li>
+                                    <li><a href="@Url.Action("Niño3", "Index")">Niño</a></li>
+                                    <li><a href="@Url.Action("Niña3", "Index")">Niña</a></li>
                                 </ul>
                             </li>
                             <li><a href="@Url.Action("Novedades", "Novedades")">Novedades</a></li>
@@ -437,9 +437,9 @@
                                 <div class="col-md-6 col-lg-4">
                                     <ul class="list-unstyled">
                                         <li><a href="@Url.Action("Caballero3", "Index")">Caballero</a></li>
-                                        <li><a href="@Url.Action("Dama", "Index")">Dama</a></li>
-                                        <li><a href="@Url.Action("Niño", "Index")">Niño</a></li>
-                                        <li><a href="@Url.Action("Niña", "Index")">Niña</a></li>
+                                        <li><a href="@Url.Action("Dama3", "Index")">Dama</a></li>
+                                        <li><a href="@Url.Action("Niño3", "Index")">Niño</a></li>
+                                        <li><a href="@Url.Action("Niña3", "Index")">Niña</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-md-6 col-lg-4">

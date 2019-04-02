@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using ShoesShop.ViewModels;
 using ShoesShop.Models;
 using ShoesShop.Helper;
 using System.IO;
 using System.Data.Entity.Validation;
 using System.Web.Security;
 using System.Data.Entity;
+using ShoesShop.ViewModels;
 
 namespace ShoesShop.Controllers
 {
@@ -55,41 +55,6 @@ namespace ShoesShop.Controllers
             return View(usm);
         }
         #endregion
-
-        //GET
-        public ActionResult ModificarPerfil(string username,string pass)
-        {
-            using (DbContextShop dbCtx = new DbContextShop())
-            {
-                var userss = dbCtx.Usersses.Where(x => x.UserName == username && x.Password==pass).SingleOrDefault();
-                return View(userss);
-            }
-        }
-        
-        //POST
-        [HttpPost]
-        public ActionResult ModificarPerfil(string username, string pass,Userss userss)
-        {
-
-            if (Session["UserName"] != null)
-            {
-                using(DbContextShop dbCtx=new DbContextShop())
-                {
-                    dbCtx.Entry(userss).State = EntityState.Modified;
-                    dbCtx.SaveChanges();
-                }
-                return RedirectToAction("Index", "Index");
-            }
-            return View();
-        }
-
-        public ActionResult Datos()
-        {
-                var usersses = dbCtx.Usersses.ToList();
-                return View(usersses);
-            
-            
-        }
 
         #region Registrar
         //GET

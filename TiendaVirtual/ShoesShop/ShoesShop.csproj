@@ -260,6 +260,7 @@
     <Compile Include="ViewModels\RegistrationModel.cs" />
     <Compile Include="ViewModels\ShoppingCartModel.cs" />
     <Compile Include="ViewModels\UserModel.cs" />
+    <Compile Include="ViewModels\UsersModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-grid.css" />
