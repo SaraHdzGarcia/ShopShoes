@@ -271,12 +271,16 @@
 
                             <div class="col-6 col-md-4 order-3 order-md-3 text-right">
                                 <div class="site-top-icons">
-                                    <ul>
+                                    <ul class="dropdown">
                                         @if (Session["UserName"] != null)
                                         {
                                             <h3>Bienvenido @Session["UserName"].ToString()</h3>
+                                            
                                         }
-                                        <li><a href="@Url.Action("Mod","Login")"><i class="icon fas fa-user"></i></a></li>
+                                        <li><a href="#"><i class="icon fas fa-user"></i></a></li>
+                                        
+                                            <li><a href="@Url.Action("Mod","Login")"></a></li>
+                                            <li><a href="@Url.Action("LogOut","Login")">Cerrar Sesion</a></li>
                                         <li>
                                             <a href="@Url.Action("AgregarCarrito", "ShoppingCart")" class="site-cart">
                                                 <i class="icon fas fa-shopping-cart"></i>

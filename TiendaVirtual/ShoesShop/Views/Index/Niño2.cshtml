@@ -248,6 +248,9 @@
                                             <h3>@Session["UserName"].ToString()</h3>
                                         }
                                         <li><a href="#"><i class="icon fas fa-user"></i></a></li>
+
+                                        <li><a href="@Url.Action("Mod","Login")"></a></li>
+                                        <li><a href="@Url.Action("LogOut","Login")">Cerrar Sesion</a></li>
                                         <li>
                                             <a href="@Url.Action("AgregarCarrito", "ShoppingCart")" class="site-cart">
                                                 <i class="icon fas fa-shopping-cart"></i>

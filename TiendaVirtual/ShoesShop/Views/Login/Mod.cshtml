@@ -69,8 +69,11 @@
 
                                 <ul>
                                     <li><a href="#"><i class="icon fas fa-user"></i></a></li>
+
+                                    <li><a href="@Url.Action("Mod","Login")"></a></li>
+                                    <li><a href="@Url.Action("LogOut","Login")">Cerrar Sesion</a></li>
                                     <li>
-                                        <a href="cart.html" class="site-cart">
+                                        <a href="@Url.Action("AgregarCarrito","ShoppingCart")" class="site-cart">
                                             <i class="icon fas fa-shopping-cart"></i>
                                         </a>
                                     </li>
@@ -86,14 +89,6 @@
 
             </div>
         </header>
-
-        <div class="bg-light py-3">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 mb-0"><a href="@Url.Action("Index","Image")">Inicio</a> <span class="mx-2 mb-0">/</span> <a href="@Url.Action("AgregarCarrito","ShoppingCart")">Carrito</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Factura</strong></div>
-                </div>
-            </div>
-        </div>
 
         <div class="site-section">
             <div class="container">

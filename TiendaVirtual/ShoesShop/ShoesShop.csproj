@@ -2147,6 +2147,9 @@
     <Content Include="Scripts\exporting.js" />
     <Content Include="Scripts\highcharts.js" />
     <Content Include="Scripts\selection.json" />
+    <None Include="Properties\PublishProfiles\GreysShoes - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\GreysShoesAp - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\GreysShoesAp - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -2251,7 +2254,6 @@
     <Content Include="Views\Index\Niño2.cshtml" />
     <Content Include="Views\Index\Niña3.cshtml" />
     <Content Include="Views\Index\Niña2.cshtml" />
-    <Content Include="Views\Product\AgregarCarrito.cshtml" />
     <Content Include="Views\Gráficas\Top2.cshtml" />
     <Content Include="Views\Gráficas\Dias.cshtml" />
     <Content Include="Views\Gráficas\Temp.cshtml" />
