@@ -40,7 +40,8 @@ namespace ShoesShop.Controllers
                             Telephone = purchase.Telephone,
                             PostalCode = purchase.PostalCode,
                             Email = purchase.Email,
-                            Payment = purchase.Payment
+                            Payment = purchase.Payment,
+                            Shipping = purchase.Shipping
 
                         };
                         dbCtx.PurchaseDetails.Add(pd);

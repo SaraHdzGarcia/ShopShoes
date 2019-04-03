@@ -238,6 +238,10 @@
     <Compile Include="Migrations\201903310329576_v21.Designer.cs">
       <DependentUpon>201903310329576_v21.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904030155254_22.cs" />
+    <Compile Include="Migrations\201904030155254_22.Designer.cs">
+      <DependentUpon>201904030155254_22.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Categories.cs" />
     <Compile Include="Models\Contact.cs" />
@@ -2334,6 +2338,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903310329576_v21.resx">
       <DependentUpon>201903310329576_v21.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904030155254_22.resx">
+      <DependentUpon>201904030155254_22.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

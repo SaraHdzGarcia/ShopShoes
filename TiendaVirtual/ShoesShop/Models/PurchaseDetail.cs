@@ -48,5 +48,8 @@ namespace ShoesShop.Models
 
         [StringLength(60,ErrorMessage ="Longitud maxima de 60")]
         public String Payment { get; set; }
+
+        [StringLength(60,ErrorMessage ="Longitud maxima de 60")]
+        public String Shipping { get; set; }
     }
 }

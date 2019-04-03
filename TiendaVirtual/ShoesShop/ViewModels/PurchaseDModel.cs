@@ -43,5 +43,9 @@ namespace ShoesShop.ViewModels
         [Required(ErrorMessage ="Campo obligatorio")]
         [Display(Name ="Forma de Pago")]
         public string Payment { get; set; }
+
+        [Required(ErrorMessage = "Campo obligatorio")]
+        [Display(Name = "Envio")]
+        public string Shipping { get; set; }
     }
 }
