@@ -137,5 +137,30 @@ namespace ShoesShop.Controllers
             }
             return RedirectToAction("Index", "Image");
         }
+
+        public ActionResult Mod(string user)
+        {
+            var use = dbCtx.Usersses.Where(x => x.UserName == user).FirstOrDefault();
+            return View(use);
+        }
+
+        [HttpPost]
+        public ActionResult Mod(string user, Userss userss)
+        {
+            user = Convert.ToString(Session["UserName"]);
+                if (Session["UserName"] != null)
+                {
+                        var en = dbCtx.Usersses.Find(userss.UserID);
+
+                        dbCtx.Entry(en).State = EntityState.Modified;
+                        dbCtx.SaveChanges();
+                    
+                    return RedirectToAction("Index", "Image");
+                }
+            else
+            {
+                return View();
+            }
+        }
     }
 }

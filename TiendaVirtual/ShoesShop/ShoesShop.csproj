@@ -2254,6 +2254,7 @@
     <Content Include="Views\ShoppingCart\AgregarCarrito.cshtml" />
     <Content Include="Views\PurchaseDetail\PurchaseDetail.cshtml" />
     <Content Include="Views\OrderTracking\Seguimiento.cshtml" />
+    <Content Include="Views\Login\Mod.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
